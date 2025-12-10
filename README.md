@@ -1,5 +1,5 @@
 # Sweet Alert++
-
+                            
 A modern, accessible, lightweight modal and alert library. The better alternative to SweetAlert2.
 
 **[Live Demo](https://raiank.github.io/sweetalertplusplus.github.io/)** | **[NPM Package](https://www.npmjs.com/package/sweetalert-plus-plus)**
