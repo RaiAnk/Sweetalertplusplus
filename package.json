@@ -84,12 +84,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/user/sweetalert-plus-plus.git"
+    "url": "https://github.com/RaiAnk/Sweetalertplusplus.git"
   },
   "bugs": {
-    "url": "https://github.com/user/sweetalert-plus-plus/issues"
+    "url": "https://github.com/RaiAnk/Sweetalertplusplus/issues"
   },
-  "homepage": "https://sweetalert-plus-plus.dev",
+  "homepage": "https://raiank.github.io/sweetalertplusplus.github.io/",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.0",
     "@rollup/plugin-node-resolve": "^15.2.0",

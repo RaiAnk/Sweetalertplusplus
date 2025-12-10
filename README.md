@@ -531,7 +531,7 @@ await confirm({
 - [NPM Package](https://www.npmjs.com/package/sweetalert-plus-plus)
 - [jsDelivr CDN](https://www.jsdelivr.com/package/npm/sweetalert-plus-plus)
 - [unpkg CDN](https://unpkg.com/sweetalert-plus-plus/)
-- [GitHub Repository](https://github.com/raiank/sweetalert-plus-plus)
+- [GitHub Repository](https://github.com/RaiAnk/Sweetalertplusplus)
 
 ## License
 
