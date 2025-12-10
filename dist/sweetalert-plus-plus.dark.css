@@ -1,0 +1,26 @@
+/*!
+ * SweetAlert++ Dark Theme v1.0.0
+ * https://sweetalert-plus-plus.dev
+ */
+
+[data-theme="dark"],
+.swal-dark {
+  --swal-bg: #0f0f23;
+  --swal-bg-secondary: #1a1a2e;
+  --swal-bg-tertiary: #252542;
+  --swal-bg-elevated: #1e1e38;
+  --swal-bg-overlay: rgba(0, 0, 0, 0.8);
+  --swal-bg-glass: rgba(30, 30, 56, 0.85);
+  --swal-text: #f1f5f9;
+  --swal-text-secondary: #94a3b8;
+  --swal-text-tertiary: #64748b;
+  --swal-text-inverse: #0f0f23;
+  --swal-border: rgba(255, 255, 255, 0.1);
+  --swal-border-light: rgba(255, 255, 255, 0.05);
+  --swal-success-light: rgba(16, 185, 129, 0.15);
+  --swal-error-light: rgba(239, 68, 68, 0.15);
+  --swal-warning-light: rgba(245, 158, 11, 0.15);
+  --swal-info-light: rgba(59, 130, 246, 0.15);
+  --swal-shadow-lg: 0 8px 10px rgba(0, 0, 0, 0.2), 0 16px 24px rgba(0, 0, 0, 0.2), 0 24px 48px rgba(0, 0, 0, 0.15), 0 32px 64px rgba(0, 0, 0, 0.1);
+  --swal-backdrop-color: rgba(0, 0, 0, 0.75);
+}

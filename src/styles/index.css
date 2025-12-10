@@ -1,0 +1,8 @@
+/**
+ * Sweet Alert++ Styles
+ * Complete stylesheet bundle
+ */
+
+@import './variables.css';
+@import './modal.css';
+@import './form.css';

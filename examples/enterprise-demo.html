@@ -1,0 +1,3022 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SweetAlert++ Enterprise | Premium Modal & Toast Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+/*! ========================================================================
+    SWEET ALERT++ ENTERPRISE - COMPLETE STYLESHEET
+    Premium UI/UX with working animations, morphism effects, and more
+    ======================================================================== */
+
+/* ============================================================================
+   CSS VARIABLES & DESIGN TOKENS
+   ============================================================================ */
+:root {
+  /* Brand Colors */
+  --primary-50: #eef2ff;
+  --primary-100: #e0e7ff;
+  --primary-200: #c7d2fe;
+  --primary-300: #a5b4fc;
+  --primary-400: #818cf8;
+  --primary-500: #6366f1;
+  --primary-600: #4f46e5;
+  --primary-700: #4338ca;
+  --primary-800: #3730a3;
+  --primary-900: #312e81;
+
+  /* Semantic Colors */
+  --success-50: #ecfdf5;
+  --success-100: #d1fae5;
+  --success-200: #a7f3d0;
+  --success-500: #10b981;
+  --success-600: #059669;
+
+  --error-50: #fef2f2;
+  --error-100: #fee2e2;
+  --error-200: #fecaca;
+  --error-500: #ef4444;
+  --error-600: #dc2626;
+
+  --warning-50: #fffbeb;
+  --warning-100: #fef3c7;
+  --warning-200: #fde68a;
+  --warning-500: #f59e0b;
+  --warning-600: #d97706;
+
+  --info-50: #eff6ff;
+  --info-100: #dbeafe;
+  --info-200: #bfdbfe;
+  --info-500: #3b82f6;
+  --info-600: #2563eb;
+
+  /* Neutrals */
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+  --gray-950: #030712;
+
+  /* Surfaces */
+  --surface-primary: #ffffff;
+  --surface-secondary: #f8fafc;
+  --surface-elevated: #ffffff;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --border-color: #e5e7eb;
+  --border-light: #f3f4f6;
+
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.03);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
+  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.04);
+
+  /* Premium Layered Shadow */
+  --shadow-premium:
+    0 0 0 1px rgba(0, 0, 0, 0.03),
+    0 1px 1px rgba(0, 0, 0, 0.02),
+    0 2px 2px rgba(0, 0, 0, 0.02),
+    0 4px 4px rgba(0, 0, 0, 0.02),
+    0 8px 8px rgba(0, 0, 0, 0.02),
+    0 16px 16px rgba(0, 0, 0, 0.02);
+
+  /* Glow Effects */
+  --glow-primary: 0 0 20px rgba(99, 102, 241, 0.25), 0 0 40px rgba(99, 102, 241, 0.15);
+  --glow-success: 0 0 20px rgba(16, 185, 129, 0.25), 0 0 40px rgba(16, 185, 129, 0.15);
+  --glow-error: 0 0 20px rgba(239, 68, 68, 0.25), 0 0 40px rgba(239, 68, 68, 0.15);
+
+  /* Timing Functions */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-in-out-circ: cubic-bezier(0.85, 0, 0.15, 1);
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  /* Durations */
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-2xl: 28px;
+  --radius-full: 9999px;
+
+  /* Z-Index */
+  --z-dropdown: 100;
+  --z-modal-backdrop: 1000;
+  --z-modal: 1001;
+  --z-toast: 1100;
+  --z-tooltip: 1200;
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+  --surface-primary: #0f0f1a;
+  --surface-secondary: #161625;
+  --surface-elevated: #1e1e32;
+  --text-primary: #f9fafb;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  --border-color: #27273d;
+  --border-light: #1e1e32;
+  --gray-100: #1e1e32;
+  --gray-200: #27273d;
+  --gray-800: #e4e4e7;
+  --gray-900: #fafafa;
+
+  --shadow-premium:
+    0 0 0 1px rgba(255, 255, 255, 0.03),
+    0 1px 1px rgba(0, 0, 0, 0.15),
+    0 2px 2px rgba(0, 0, 0, 0.15),
+    0 4px 4px rgba(0, 0, 0, 0.15),
+    0 8px 8px rgba(0, 0, 0, 0.15),
+    0 16px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* ============================================================================
+   BASE RESET & STYLES
+   ============================================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--surface-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ============================================================================
+   NAVIGATION
+   ============================================================================ */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 72px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--border-light);
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .nav {
+  background: rgba(15, 15, 26, 0.85);
+}
+
+.nav-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.logo-icon {
+  width: 42px;
+  height: 42px;
+  background: linear-gradient(135deg, var(--primary-500), var(--primary-700));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: white;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
+}
+
+.logo-text {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.logo-badge {
+  font-size: 0.5625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: linear-gradient(135deg, #f093fb, #f5576c);
+  color: white;
+  padding: 0.1875rem 0.5rem;
+  border-radius: 4px;
+  margin-left: 0.5rem;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+  background: var(--gray-100);
+}
+
+.theme-toggle {
+  width: 42px;
+  height: 42px;
+  border: none;
+  background: var(--gray-100);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  transition: all 0.2s ease;
+  margin-left: 0.5rem;
+}
+
+.theme-toggle:hover {
+  background: var(--gray-200);
+  transform: scale(1.05);
+}
+
+/* ============================================================================
+   HERO SECTION
+   ============================================================================ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8rem 2rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 40%, rgba(99, 102, 241, 0.15), transparent 50%),
+    radial-gradient(ellipse 60% 50% at 80% 60%, rgba(236, 72, 153, 0.12), transparent 50%),
+    radial-gradient(ellipse 50% 40% at 50% 80%, rgba(59, 130, 246, 0.1), transparent 50%);
+  animation: hero-float 20s ease-in-out infinite;
+}
+
+@keyframes hero-float {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 1; }
+  33% { transform: translate(20px, -20px) scale(1.02); }
+  66% { transform: translate(-15px, 15px) scale(0.98); }
+}
+
+.hero-content {
+  position: relative;
+  text-align: center;
+  max-width: 800px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, var(--primary-50), var(--primary-100));
+  color: var(--primary-700);
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  border: 1px solid var(--primary-200);
+}
+
+[data-theme="dark"] .hero-badge {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.1));
+  border-color: rgba(99, 102, 241, 0.3);
+  color: var(--primary-300);
+}
+
+.hero-title {
+  font-size: clamp(2.75rem, 7vw, 5rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary-600) 50%, #ec4899 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 6s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  max-width: 550px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ============================================================================
+   BUTTONS
+   ============================================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  padding: 0.875rem 1.75rem;
+  font-family: inherit;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border-radius: var(--radius-lg);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.25s var(--ease-out-expo);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 50%);
+  pointer-events: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 100%);
+  color: white;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.05),
+    0 4px 12px rgba(99, 102, 241, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.05),
+    0 8px 20px rgba(99, 102, 241, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background: var(--surface-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary:hover {
+  background: var(--gray-50);
+  border-color: var(--gray-300);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+[data-theme="dark"] .btn-secondary {
+  background: var(--surface-elevated);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .btn-secondary:hover {
+  background: var(--gray-200);
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, var(--error-500) 0%, var(--error-600) 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.35);
+}
+
+.btn-danger:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(239, 68, 68, 0.4);
+}
+
+.btn-success {
+  background: linear-gradient(135deg, var(--success-500) 0%, var(--success-600) 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.35);
+}
+
+.btn-success:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+}
+
+.btn-ghost:hover {
+  background: var(--gray-100);
+  color: var(--text-primary);
+}
+
+.btn-sm {
+  padding: 0.625rem 1.25rem;
+  font-size: 0.8125rem;
+}
+
+.btn-lg {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+}
+
+.btn-icon {
+  width: 42px;
+  height: 42px;
+  padding: 0;
+}
+
+/* ============================================================================
+   MAIN CONTENT & SECTIONS
+   ============================================================================ */
+.main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section {
+  padding: 6rem 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  background: var(--primary-50);
+  color: var(--primary-600);
+  padding: 0.375rem 1rem;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+}
+
+[data-theme="dark"] .section-badge {
+  background: rgba(99, 102, 241, 0.12);
+  color: var(--primary-400);
+}
+
+.section-title {
+  font-size: 2.75rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+/* ============================================================================
+   TABS
+   ============================================================================ */
+.tabs-container {
+  margin-bottom: 3rem;
+}
+
+.tabs {
+  display: inline-flex;
+  gap: 0.25rem;
+  padding: 0.375rem;
+  background: var(--gray-100);
+  border-radius: var(--radius-lg);
+  overflow-x: auto;
+}
+
+[data-theme="dark"] .tabs {
+  background: var(--surface-elevated);
+}
+
+.tab {
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-md);
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.tab:hover {
+  color: var(--text-primary);
+}
+
+.tab.active {
+  background: var(--surface-primary);
+  color: var(--primary-600);
+  box-shadow: var(--shadow-sm);
+}
+
+[data-theme="dark"] .tab.active {
+  background: var(--gray-100);
+  color: var(--primary-400);
+}
+
+.tab-content {
+  display: none;
+  animation: tab-fade-in 0.3s var(--ease-out-expo);
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@keyframes tab-fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================================
+   DEMO GRID & CARDS
+   ============================================================================ */
+.demo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 1.5rem;
+}
+
+.demo-card {
+  background: var(--surface-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  transition: all 0.3s var(--ease-out-expo);
+}
+
+.demo-card:hover {
+  border-color: var(--primary-200);
+  box-shadow: var(--shadow-lg), 0 0 0 1px var(--primary-100);
+  transform: translateY(-4px);
+}
+
+[data-theme="dark"] .demo-card:hover {
+  border-color: var(--primary-800);
+  box-shadow: var(--shadow-lg), 0 0 0 1px rgba(99, 102, 241, 0.2);
+}
+
+.demo-card-header {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.demo-card-title {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.demo-card-badge {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  padding: 0.25rem 0.625rem;
+  border-radius: var(--radius-sm);
+  background: var(--primary-50);
+  color: var(--primary-600);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+[data-theme="dark"] .demo-card-badge {
+  background: rgba(99, 102, 241, 0.12);
+  color: var(--primary-400);
+}
+
+.demo-card-preview {
+  padding: 2.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  background: var(--surface-secondary);
+  min-height: 180px;
+  justify-content: center;
+}
+
+[data-theme="dark"] .demo-card-preview {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.demo-card-code {
+  background: #1a1b26;
+  position: relative;
+}
+
+.code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.code-lang {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: #7c7c8a;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.copy-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.75rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-sm);
+  color: #a1a1aa;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.copy-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.copy-btn.copied {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: rgba(16, 185, 129, 0.3);
+  color: #10b981;
+}
+
+.code-block {
+  padding: 1.25rem;
+  margin: 0;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.8;
+}
+
+.code-block code {
+  display: block;
+  color: #e4e4e7;
+  white-space: pre;
+}
+
+/* Syntax Colors */
+.tk { color: #bb9af7; } /* keyword */
+.ts { color: #9ece6a; } /* string */
+.tf { color: #7aa2f7; } /* function */
+.tp { color: #73daca; } /* property */
+.tn { color: #ff9e64; } /* number */
+.tc { color: #565f89; } /* comment */
+.tb { color: #f7768e; } /* boolean */
+
+/* ============================================================================
+   STYLE SHOWCASE CARDS
+   ============================================================================ */
+.style-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.style-card {
+  padding: 2.5rem 2rem;
+  border-radius: var(--radius-2xl);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.4s var(--ease-out-expo);
+  position: relative;
+  overflow: hidden;
+}
+
+.style-card:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+.style-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.3) 0%, transparent 100%);
+  pointer-events: none;
+  border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
+}
+
+/* Neumorphism Style */
+.style-neumorphism {
+  background: #e4e8f0;
+  box-shadow:
+    12px 12px 24px rgba(166, 180, 200, 0.7),
+    -12px -12px 24px rgba(255, 255, 255, 0.8),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+}
+
+[data-theme="dark"] .style-neumorphism {
+  background: #2a2d3e;
+  box-shadow:
+    12px 12px 24px rgba(0, 0, 0, 0.4),
+    -12px -12px 24px rgba(60, 65, 85, 0.3),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.style-neumorphism:hover {
+  box-shadow:
+    16px 16px 32px rgba(166, 180, 200, 0.8),
+    -16px -16px 32px rgba(255, 255, 255, 0.9),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+}
+
+/* Claymorphism Style */
+.style-claymorphism {
+  background: linear-gradient(145deg, #ffffff 0%, #f0f4f8 100%);
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  box-shadow:
+    0 30px 60px -15px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+}
+
+[data-theme="dark"] .style-claymorphism {
+  background: linear-gradient(145deg, #2a2d3e 0%, #1e2030 100%);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.style-claymorphism:hover {
+  box-shadow:
+    0 40px 80px -20px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.6) inset;
+}
+
+/* Aurora Style */
+.style-aurora {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 20px 40px -10px rgba(99, 102, 241, 0.2);
+  position: relative;
+}
+
+.style-aurora::after {
+  content: '';
+  position: absolute;
+  inset: -100%;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.25) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(236, 72, 153, 0.2) 0%, transparent 50%);
+  animation: aurora-rotate 12s linear infinite;
+  z-index: -1;
+}
+
+@keyframes aurora-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+[data-theme="dark"] .style-aurora {
+  background: rgba(30, 32, 48, 0.85);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.style-aurora:hover {
+  box-shadow: 0 30px 60px -15px rgba(99, 102, 241, 0.3);
+}
+
+/* Glassmorphism Style */
+.style-glassmorphism {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+}
+
+[data-theme="dark"] .style-glassmorphism {
+  background: rgba(30, 32, 48, 0.5);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.style-glassmorphism:hover {
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 12px 40px rgba(31, 38, 135, 0.15);
+}
+
+[data-theme="dark"] .style-glassmorphism:hover {
+  background: rgba(30, 32, 48, 0.6);
+}
+
+.style-icon {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 1.5rem;
+  background: linear-gradient(135deg, var(--primary-500), var(--primary-600));
+  border-radius: var(--radius-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.35);
+  position: relative;
+  z-index: 1;
+}
+
+.style-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--gray-800);
+  position: relative;
+  z-index: 1;
+}
+
+[data-theme="dark"] .style-name {
+  color: var(--gray-100);
+}
+
+.style-desc {
+  font-size: 0.875rem;
+  color: var(--gray-500);
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================================================
+   MODAL STYLES - PREMIUM ENTERPRISE
+   ============================================================================ */
+.swal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: var(--z-modal-backdrop);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s var(--ease-out-expo);
+}
+
+.swal-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+[data-theme="dark"] .swal-backdrop {
+  background: rgba(0, 0, 0, 0.75);
+}
+
+/* Base Modal */
+.swal-modal {
+  position: relative;
+  background: var(--surface-primary);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-2xl);
+  width: 100%;
+  max-width: 440px;
+  max-height: calc(100vh - 4rem);
+  overflow: hidden;
+  z-index: var(--z-modal);
+  transform: scale(0.9) translateY(20px);
+  opacity: 0;
+  transition: all 0.4s var(--ease-out-back);
+}
+
+.swal-backdrop.active .swal-modal {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+/* Modal Sections */
+.swal-header {
+  padding: 2.5rem 2rem 1.5rem;
+  text-align: center;
+}
+
+.swal-body {
+  padding: 0 2rem 1.5rem;
+}
+
+.swal-footer {
+  padding: 1rem 2rem 2rem;
+  display: flex;
+  gap: 0.75rem;
+}
+
+.swal-footer-center {
+  justify-content: center;
+}
+
+.swal-footer-spread {
+  justify-content: space-between;
+}
+
+.swal-footer .btn {
+  flex: 1;
+  max-width: 180px;
+}
+
+/* Close Button */
+.swal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: var(--gray-100);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 1.25rem;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.swal-close:hover {
+  background: var(--gray-200);
+  color: var(--text-primary);
+  transform: rotate(90deg);
+}
+
+/* Icon Container */
+.swal-icon {
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.swal-icon-inner {
+  font-size: 2.5rem;
+  font-weight: 700;
+  position: relative;
+  z-index: 2;
+}
+
+/* Icon Variants */
+.swal-icon-success {
+  background: linear-gradient(135deg, var(--success-50) 0%, var(--success-100) 100%);
+  color: var(--success-500);
+  box-shadow: 0 0 0 8px rgba(16, 185, 129, 0.1);
+  animation: icon-success-pop 0.5s var(--ease-out-back) forwards;
+}
+
+.swal-icon-success::after {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 2px solid var(--success-200);
+  animation: icon-ring-pulse 1.5s ease-out infinite;
+}
+
+@keyframes icon-success-pop {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes icon-ring-pulse {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+.swal-icon-error {
+  background: linear-gradient(135deg, var(--error-50) 0%, var(--error-100) 100%);
+  color: var(--error-500);
+  box-shadow: 0 0 0 8px rgba(239, 68, 68, 0.1);
+  animation: icon-error-shake 0.6s var(--ease-out-expo) forwards;
+}
+
+@keyframes icon-error-shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-6px); }
+  20%, 40%, 60%, 80% { transform: translateX(6px); }
+}
+
+.swal-icon-warning {
+  background: linear-gradient(135deg, var(--warning-50) 0%, var(--warning-100) 100%);
+  color: var(--warning-500);
+  box-shadow: 0 0 0 8px rgba(245, 158, 11, 0.1);
+  animation: icon-warning-bounce 0.5s var(--ease-out-back) forwards;
+}
+
+@keyframes icon-warning-bounce {
+  0% { transform: scale(0) rotate(-10deg); }
+  60% { transform: scale(1.1) rotate(5deg); }
+  100% { transform: scale(1) rotate(0); }
+}
+
+.swal-icon-info {
+  background: linear-gradient(135deg, var(--info-50) 0%, var(--info-100) 100%);
+  color: var(--info-500);
+  box-shadow: 0 0 0 8px rgba(59, 130, 246, 0.1);
+  animation: icon-info-float 0.5s var(--ease-out-expo) forwards;
+}
+
+@keyframes icon-info-float {
+  0% { transform: translateY(20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.swal-icon-question {
+  background: linear-gradient(135deg, var(--primary-50) 0%, var(--primary-100) 100%);
+  color: var(--primary-500);
+  box-shadow: 0 0 0 8px rgba(99, 102, 241, 0.1);
+  animation: icon-question-wobble 0.6s var(--ease-out-expo) forwards;
+}
+
+@keyframes icon-question-wobble {
+  0% { transform: scale(0) rotate(-180deg); }
+  60% { transform: scale(1.1) rotate(10deg); }
+  80% { transform: scale(0.95) rotate(-5deg); }
+  100% { transform: scale(1) rotate(0); }
+}
+
+.swal-icon-loading {
+  background: linear-gradient(135deg, var(--gray-100) 0%, var(--gray-200) 100%);
+  color: var(--primary-500);
+}
+
+/* Loading Spinner */
+.swal-spinner {
+  width: 44px;
+  height: 44px;
+  border: 3px solid var(--gray-200);
+  border-top-color: var(--primary-500);
+  border-radius: 50%;
+  animation: spinner-rotate 0.8s linear infinite;
+}
+
+@keyframes spinner-rotate {
+  to { transform: rotate(360deg); }
+}
+
+/* Title & Text */
+.swal-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.625rem;
+  letter-spacing: -0.01em;
+}
+
+.swal-text {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ============================================================================
+   MODAL STYLE VARIANTS
+   ============================================================================ */
+
+/* Neumorphism Modal */
+.swal-modal-neumorphism {
+  background: #e4e8f0;
+  border: none;
+  box-shadow:
+    20px 20px 40px rgba(166, 180, 200, 0.7),
+    -20px -20px 40px rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="dark"] .swal-modal-neumorphism {
+  background: #2a2d3e;
+  box-shadow:
+    20px 20px 40px rgba(0, 0, 0, 0.5),
+    -20px -20px 40px rgba(60, 65, 85, 0.3);
+}
+
+.swal-modal-neumorphism .swal-input {
+  background: #e4e8f0;
+  border: none;
+  box-shadow:
+    inset 6px 6px 12px rgba(166, 180, 200, 0.5),
+    inset -6px -6px 12px rgba(255, 255, 255, 0.7);
+}
+
+[data-theme="dark"] .swal-modal-neumorphism .swal-input {
+  background: #2a2d3e;
+  box-shadow:
+    inset 6px 6px 12px rgba(0, 0, 0, 0.3),
+    inset -6px -6px 12px rgba(60, 65, 85, 0.2);
+}
+
+.swal-modal-neumorphism .btn {
+  background: #e4e8f0;
+  color: var(--text-primary);
+  border: none;
+  box-shadow:
+    6px 6px 12px rgba(166, 180, 200, 0.5),
+    -6px -6px 12px rgba(255, 255, 255, 0.7);
+}
+
+.swal-modal-neumorphism .btn:hover {
+  box-shadow:
+    8px 8px 16px rgba(166, 180, 200, 0.6),
+    -8px -8px 16px rgba(255, 255, 255, 0.8);
+}
+
+.swal-modal-neumorphism .btn:active {
+  box-shadow:
+    inset 4px 4px 8px rgba(166, 180, 200, 0.5),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.7);
+}
+
+.swal-modal-neumorphism .btn-primary {
+  background: linear-gradient(135deg, var(--primary-500), var(--primary-600));
+  color: white;
+  box-shadow:
+    6px 6px 12px rgba(166, 180, 200, 0.5),
+    -6px -6px 12px rgba(255, 255, 255, 0.7),
+    0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+/* Claymorphism Modal */
+.swal-modal-claymorphism {
+  background: linear-gradient(145deg, #ffffff 0%, #f0f4f8 100%);
+  border: 3px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius-2xl);
+}
+
+.swal-modal-claymorphism::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 100%);
+  border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
+  pointer-events: none;
+}
+
+[data-theme="dark"] .swal-modal-claymorphism {
+  background: linear-gradient(145deg, #2a2d3e 0%, #1e2030 100%);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.swal-modal-claymorphism .btn {
+  background: linear-gradient(145deg, #ffffff, #f0f4f8);
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  color: var(--text-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.swal-modal-claymorphism .btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, transparent 100%);
+  border-radius: inherit;
+}
+
+.swal-modal-claymorphism .btn:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.15);
+}
+
+.swal-modal-claymorphism .btn-primary {
+  background: linear-gradient(145deg, var(--primary-500), var(--primary-600));
+  border-color: var(--primary-400);
+  color: white;
+  box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4);
+}
+
+/* Aurora Modal */
+.swal-modal-aurora {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow:
+    0 32px 64px -16px rgba(99, 102, 241, 0.25),
+    0 0 0 1px rgba(99, 102, 241, 0.05) inset;
+  overflow: visible;
+}
+
+.swal-modal-aurora::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background:
+    radial-gradient(circle at 30% 70%, rgba(99, 102, 241, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 70% 30%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
+  animation: aurora-glow 8s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes aurora-glow {
+  0% { transform: rotate(0deg) scale(1); opacity: 0.8; }
+  100% { transform: rotate(180deg) scale(1.1); opacity: 1; }
+}
+
+[data-theme="dark"] .swal-modal-aurora {
+  background: rgba(30, 32, 48, 0.92);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Glassmorphism Modal */
+.swal-modal-glassmorphism {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.12);
+}
+
+[data-theme="dark"] .swal-modal-glassmorphism {
+  background: rgba(30, 32, 48, 0.7);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.swal-modal-glassmorphism .btn {
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: var(--text-primary);
+}
+
+.swal-modal-glassmorphism .btn:hover {
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.swal-modal-glassmorphism .btn-primary {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.9), rgba(79, 70, 229, 0.9));
+  border-color: transparent;
+  color: white;
+}
+
+/* ============================================================================
+   FORM INPUTS - PREMIUM DESIGN
+   ============================================================================ */
+.swal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.swal-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.swal-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.swal-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.swal-label-required::after {
+  content: '*';
+  color: var(--error-500);
+  font-weight: 500;
+}
+
+.swal-input {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  font-family: inherit;
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  background: var(--surface-primary);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.swal-input::placeholder {
+  color: var(--text-muted);
+}
+
+.swal-input:hover {
+  border-color: var(--gray-300);
+}
+
+.swal-input:focus {
+  border-color: var(--primary-500);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+.swal-input-error {
+  border-color: var(--error-500);
+}
+
+.swal-input-error:focus {
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1);
+}
+
+/* Select Input */
+.swal-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.875rem center;
+  padding-right: 2.75rem;
+  cursor: pointer;
+}
+
+/* Textarea */
+.swal-textarea {
+  min-height: 100px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+/* Checkbox & Radio */
+.swal-checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+}
+
+.swal-checkbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  accent-color: var(--primary-500);
+  transition: all 0.2s ease;
+}
+
+.swal-checkbox:checked {
+  background: var(--primary-500);
+  border-color: var(--primary-500);
+}
+
+.swal-checkbox-label {
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Input with Icon */
+.swal-input-wrapper {
+  position: relative;
+}
+
+.swal-input-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.swal-input-with-icon {
+  padding-left: 2.75rem;
+}
+
+/* Help Text */
+.swal-help {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+/* Error Message */
+.swal-error-text {
+  font-size: 0.8125rem;
+  color: var(--error-500);
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+/* ============================================================================
+   PROGRESS BAR
+   ============================================================================ */
+.swal-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: var(--gray-100);
+  overflow: hidden;
+  border-radius: 0 0 var(--radius-2xl) var(--radius-2xl);
+}
+
+.swal-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-500), var(--primary-400));
+  border-radius: 0 0 0 var(--radius-2xl);
+  transition: width linear;
+}
+
+/* ============================================================================
+   TOAST NOTIFICATIONS
+   ============================================================================ */
+.toast-container {
+  position: fixed;
+  z-index: var(--z-toast);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  pointer-events: none;
+  padding: 1.5rem;
+}
+
+.toast-container.top-end {
+  top: 80px;
+  right: 0;
+  align-items: flex-end;
+}
+
+.toast-container.top-center {
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  align-items: center;
+}
+
+.toast-container.bottom-end {
+  bottom: 0;
+  right: 0;
+  align-items: flex-end;
+}
+
+.toast-container.bottom-center {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  align-items: center;
+}
+
+.toast {
+  background: var(--surface-primary);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.875rem;
+  min-width: 320px;
+  max-width: 420px;
+  pointer-events: auto;
+  transform: translateX(120%);
+  opacity: 0;
+  transition: all 0.4s var(--ease-out-back);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+}
+
+.toast.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.toast::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+}
+
+.toast-success::before { background: linear-gradient(180deg, var(--success-500), var(--success-600)); }
+.toast-error::before { background: linear-gradient(180deg, var(--error-500), var(--error-600)); }
+.toast-warning::before { background: linear-gradient(180deg, var(--warning-500), var(--warning-600)); }
+.toast-info::before { background: linear-gradient(180deg, var(--info-500), var(--info-600)); }
+
+.toast-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.toast-success .toast-icon { background: var(--success-50); color: var(--success-500); }
+.toast-error .toast-icon { background: var(--error-50); color: var(--error-500); }
+.toast-warning .toast-icon { background: var(--warning-50); color: var(--warning-500); }
+.toast-info .toast-icon { background: var(--info-50); color: var(--info-500); }
+
+.toast-content {
+  flex: 1;
+  min-width: 0;
+  padding-top: 0.125rem;
+}
+
+.toast-title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.125rem;
+}
+
+.toast-message {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.toast-close {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  margin-top: -0.125rem;
+  margin-right: -0.25rem;
+}
+
+.toast-close:hover {
+  background: var(--gray-100);
+  color: var(--text-primary);
+}
+
+.toast-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: var(--primary-500);
+  transition: width linear;
+}
+
+/* ============================================================================
+   CONFETTI
+   ============================================================================ */
+.confetti-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.confetti {
+  position: absolute;
+  top: -20px;
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* ============================================================================
+   ANIMATIONS
+   ============================================================================ */
+.animate-fade-in {
+  animation: fade-in 0.3s var(--ease-out-expo) forwards;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.4s var(--ease-out-expo) forwards;
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-scale-in {
+  animation: scale-in 0.4s var(--ease-out-back) forwards;
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-bounce-in {
+  animation: bounce-in 0.6s var(--ease-out-back) forwards;
+}
+
+@keyframes bounce-in {
+  0% { opacity: 0; transform: scale(0.3); }
+  50% { transform: scale(1.05); }
+  70% { transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.animate-elastic {
+  animation: elastic 0.8s var(--ease-out-expo) forwards;
+}
+
+@keyframes elastic {
+  0% { opacity: 0; transform: scale(0); }
+  55% { transform: scale(1.08); }
+  70% { transform: scale(0.96); }
+  85% { transform: scale(1.02); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.animate-flip-in {
+  animation: flip-in 0.6s var(--ease-out-expo) forwards;
+  perspective: 1000px;
+}
+
+@keyframes flip-in {
+  0% { opacity: 0; transform: perspective(400px) rotateX(-90deg); }
+  40% { transform: perspective(400px) rotateX(15deg); }
+  70% { transform: perspective(400px) rotateX(-10deg); }
+  100% { opacity: 1; transform: perspective(400px) rotateX(0); }
+}
+
+.animate-rotate-in {
+  animation: rotate-in 0.5s var(--ease-out-back) forwards;
+}
+
+@keyframes rotate-in {
+  from { opacity: 0; transform: rotate(-180deg) scale(0); }
+  to { opacity: 1; transform: rotate(0) scale(1); }
+}
+
+.animate-zoom-in {
+  animation: zoom-in 0.4s var(--ease-out-back) forwards;
+}
+
+@keyframes zoom-in {
+  0% { opacity: 0; transform: scale(0.5); }
+  70% { transform: scale(1.05); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* Shake Animation */
+.animate-shake {
+  animation: shake 0.6s var(--ease-out-expo);
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-8px); }
+  20%, 40%, 60%, 80% { transform: translateX(8px); }
+}
+
+/* Pulse Animation */
+.animate-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.9; }
+}
+
+/* ============================================================================
+   FOOTER
+   ============================================================================ */
+.footer {
+  border-top: 1px solid var(--border-color);
+  padding: 4rem 2rem;
+  margin-top: 4rem;
+  background: var(--surface-secondary);
+}
+
+.footer-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr repeat(3, 1fr);
+  gap: 3rem;
+}
+
+.footer-brand-desc {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  margin-top: 1rem;
+  max-width: 300px;
+  line-height: 1.7;
+}
+
+.footer-column h4 {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+}
+
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 0.9375rem;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: var(--primary-500);
+}
+
+.footer-bottom {
+  max-width: 1400px;
+  margin: 3rem auto 0;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+/* ============================================================================
+   RESPONSIVE
+   ============================================================================ */
+@media (max-width: 1024px) {
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .hero {
+    padding: 6rem 1.5rem 3rem;
+  }
+
+  .section {
+    padding: 4rem 0;
+  }
+
+  .demo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .style-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-brand-desc {
+    max-width: 100%;
+  }
+
+  .swal-form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================================
+   SCROLLBAR
+   ============================================================================ */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--gray-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gray-300);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gray-400);
+}
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#" class="logo">
+        <div class="logo-icon">S++</div>
+        <span class="logo-text">SweetAlert++</span>
+        <span class="logo-badge">ENTERPRISE</span>
+      </a>
+      <div class="nav-links">
+        <a href="#styles" class="nav-link">Styles</a>
+        <a href="#demos" class="nav-link">Demos</a>
+        <a href="#animations" class="nav-link">Animations</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+          <span id="theme-icon">🌙</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-badge">✨ Enterprise Edition v2.0</div>
+      <h1 class="hero-title">Beautiful Alerts<br>Modals & Toasts</h1>
+      <p class="hero-subtitle">
+        The most comprehensive modal library for modern applications. Premium design, stunning animations, developer-first APIs.
+      </p>
+      <div class="hero-actions">
+        <button class="btn btn-primary btn-lg" onclick="showQuickDemo()">
+          ✨ See it in Action
+        </button>
+        <a href="#demos" class="btn btn-secondary btn-lg">
+          Browse Examples
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <main class="main">
+    <!-- Style Showcase -->
+    <section class="section" id="styles">
+      <div class="section-header">
+        <div class="section-badge">Premium Styles</div>
+        <h2 class="section-title">Morphism Variants</h2>
+        <p class="section-subtitle">Four stunning visual styles, each crafted for different aesthetic needs</p>
+      </div>
+
+      <div class="style-grid">
+        <div class="style-card style-neumorphism" onclick="showStyleDemo('neumorphism')">
+          <div class="style-icon">🎨</div>
+          <h3 class="style-name">Neumorphism</h3>
+          <p class="style-desc">Soft UI with extruded, clay-like appearance</p>
+        </div>
+
+        <div class="style-card style-claymorphism" onclick="showStyleDemo('claymorphism')">
+          <div class="style-icon">🧸</div>
+          <h3 class="style-name">Claymorphism</h3>
+          <p class="style-desc">3D inflated shapes with playful aesthetics</p>
+        </div>
+
+        <div class="style-card style-aurora" onclick="showStyleDemo('aurora')">
+          <div class="style-icon">🌌</div>
+          <h3 class="style-name">Aurora UI</h3>
+          <p class="style-desc">Flowing gradients with ethereal glow</p>
+        </div>
+
+        <div class="style-card style-glassmorphism" onclick="showStyleDemo('glassmorphism')">
+          <div class="style-icon">🔮</div>
+          <h3 class="style-name">Glassmorphism</h3>
+          <p class="style-desc">Frosted glass with blur effects</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Demos Section -->
+    <section class="section" id="demos">
+      <div class="section-header">
+        <div class="section-badge">Interactive Demos</div>
+        <h2 class="section-title">Ready-to-Use Examples</h2>
+        <p class="section-subtitle">Click any demo to see it in action, then copy the code</p>
+      </div>
+
+      <div class="tabs-container">
+        <div class="tabs">
+          <button class="tab active" data-tab="alerts">Alerts</button>
+          <button class="tab" data-tab="confirms">Confirms</button>
+          <button class="tab" data-tab="prompts">Prompts</button>
+          <button class="tab" data-tab="forms">Forms</button>
+          <button class="tab" data-tab="toasts">Toasts</button>
+          <button class="tab" data-tab="advanced">Advanced</button>
+        </div>
+      </div>
+
+      <!-- Alerts Tab -->
+      <div class="tab-content active" id="tab-alerts">
+        <div class="demo-grid">
+          <!-- Success Alert -->
+          <div class="demo-card">
+            <div class="demo-card-header">
+              <h3 class="demo-card-title">Success Alert</h3>
+              <span class="demo-card-badge">Popular</span>
+            </div>
+            <div class="demo-card-preview">
+              <button class="btn btn-success" onclick="showSuccessAlert()">Show Success</button>
+            </div>
+            <div class="demo-card-code">
+              <div class="code-header">
+                <span class="code-lang">JavaScript</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+              </div>
+              <pre class="code-block"><code><span class="tk">await</span> Swal.<span class="tf">success</span>({
+  <span class="tp">title</span>: <span class="ts">'Success!'</span>,
+  <span class="tp">text</span>: <span class="ts">'Your operation completed successfully'</span>,
+  <span class="tp">style</span>: <span class="ts">'aurora'</span>,
+  <span class="tp">timer</span>: <span class="tn">3000</span>,
+  <span class="tp">showConfetti</span>: <span class="tb">true</span>
+});</code></pre>
+            </div>
+          </div>
+
+          <!-- Error Alert -->
+          <div class="demo-card">
+            <div class="demo-card-header">
+              <h3 class="demo-card-title">Error Alert</h3>
+              <span class="demo-card-badge">Essential</span>
+            </div>
+            <div class="demo-card-preview">
+              <button class="btn btn-danger" onclick="showErrorAlert()">Show Error</button>
+            </div>
+            <div class="demo-card-code">
+              <div class="code-header">
+                <span class="code-lang">JavaScript</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+              </div>
+              <pre class="code-block"><code><span class="tk">await</span> Swal.<span class="tf">error</span>({
+  <span class="tp">title</span>: <span class="ts">'Oops!'</span>,
+  <span class="tp">text</span>: <span class="ts">'Something went wrong. Please try again.'</span>,
+  <span class="tp">style</span>: <span class="ts">'neumorphism'</span>,
+  <span class="tp">animation</span>: <span class="ts">'shake'</span>
+});</code></pre>
+            </div>
+          </div>
+
+          <!-- Warning Alert -->
+          <div class="demo-card">
+            <div class="demo-card-header">
+              <h3 class="demo-card-title">Warning Alert</h3>
+              <span class="demo-card-badge">Essential</span>
+            </div>
+            <div class="demo-card-preview">
+              <button class="btn btn-primary" onclick="showWarningAlert()" style="background: linear-gradient(135deg, var(--warning-500), var(--warning-600));">Show Warning</button>
+            </div>
+            <div class="demo-card-code">
+              <div class="code-header">
+                <span class="code-lang">JavaScript</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+              </div>
+              <pre class="code-block"><code><span class="tk">await</span> Swal.<span class="tf">warning</span>({
+  <span class="tp">title</span>: <span class="ts">'Warning'</span>,
+  <span class="tp">text</span>: <span class="ts">'This action may have consequences'</span>,
+  <span class="tp">style</span>: <span class="ts">'claymorphism'</span>
+});</code></pre>
+            </div>
+          </div>
+
+          <!-- Info Alert -->
+          <div class="demo-card">
+            <div class="demo-card-header">
+              <h3 class="demo-card-title">Info Alert</h3>
+              <span class="demo-card-badge">Essential</span>
+            </div>
+            <div class="demo-card-preview">
+              <button class="btn btn-primary" onclick="showInfoAlert()" style="background: linear-gradient(135deg, var(--info-500), var(--info-600));">Show Info</button>
+            </div>
+            <div class="demo-card-code">
+              <div class="code-header">
+                <span class="code-lang">JavaScript</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+              </div>
+              <pre class="code-block"><code><span class="tk">await</span> Swal.<span class="tf">info</span>({
+  <span class="tp">title</span>: <span class="ts">'Did you know?'</span>,
+  <span class="tp">text</span>: <span class="ts">'You can customize every aspect of this modal'</span>,
+  <span class="tp">style</span>: <span class="ts">'glassmorphism'</span>
+});</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Confirms Tab -->
+      <div class="tab-content" id="tab-confirms">
+        <div class="demo-grid">
+          <div class="demo-card">
+            <div class="demo-card-header">
+              <h3 class="demo-card-title">Delete Confirmation</h3>
+              <span class="demo-card-badge">Popular</span>
+            </div>
+            <div class="demo-card-preview">
+              <button class="btn btn-danger" onclick="showDeleteConfirm()">Delete Item</button>
+            </div>
+            <div class="demo-card-code">
+              <div class="code-header">
+                <span class="code-lang">JavaScript</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+              </div>
+              <pre class="code-block"><code><span class="tk">const</span> result = <span class="tk">await</span> Swal.<span class="tf">confirm</span>({
+  <span class="tp">title</span>: <span class="ts">'Delete this item?'</span>,
+  <span class="tp">text</span>: <span class="ts">'This action cannot be undone'</span>,
+  <span class="tp">icon</span>: <span class="ts">'warning'</span>,
+  <span class="tp">style</span>: <span class="ts">'aurora'</span>,
+  <span class="tp">confirmText</span>: <span class="ts">'Delete'</span>,
+  <span class="tp">confirmVariant</span>: <span class="ts">'danger'</span>,
+  <span class="tp">cancelText</span>: <span class="ts">'Keep'</span>
+});
+
+<span class="tk">if</span> (result.<span class="tp">confirmed</span>) {
+  <span class="tc">// Delete the item</span>
+}</code></pre>
+            </div>
+          </div>
+
+          <div class="demo-card">
+            <div class="demo-card-header">
+              <h3 class="demo-card-title">Logout Confirmation</h3>
+              <span class="demo-card-badge">Common</span>
+            </div>
+            <div class="demo-card-preview">
+              <button class="btn btn-secondary" onclick="showLogoutConfirm()">Logout</button>
+            </div>
+            <div class="demo-card-code">
+              <div class="code-header">
+                <span class="code-lang">JavaScript</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+              </div>
+              <pre class="code-block"><code><span class="tk">const</span> result = <span class="tk">await</span> Swal.<span class="tf">confirm</span>({
+  <span class="tp">title</span>: <span class="ts">'Logout?'</span>,
+  <span class="tp">text</span>: <span class="ts">'You will need to login again'</span>,
+  <span class="tp">icon</span>: <span class="ts">'question'</span>,
+  <span class="tp">style</span>: <span class="ts">'neumorphism'</span>,
+  <span class="tp">confirmText</span>: <span class="ts">'Yes, logout'</span>,
+  <span class="tp">cancelText</span>: <span class="ts">'Stay'</span>
+});</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Prompts Tab -->
+      <div class="tab-content" id="tab-prompts">
+        <div class="demo-grid">
+          <div class="demo-card">
+            <div class="demo-card-header">
+              <h3 class="demo-card-title">Email Input</h3>
+              <span class="demo-card-badge">With Validation</span>
+            </div>
+            <div class="demo-card-preview">
+              <button class="btn btn-primary" onclick="showEmailPrompt()">Subscribe</button>
+            </div>
+            <div class="demo-card-code">
+              <div class="code-header">
+                <span class="code-lang">JavaScript</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+              </div>
+              <pre class="code-block"><code><span class="tk">const</span> email = <span class="tk">await</span> Swal.<span class="tf">prompt</span>({
+  <span class="tp">title</span>: <span class="ts">'Subscribe to newsletter'</span>,
+  <span class="tp">text</span>: <span class="ts">'Get updates on new features'</span>,
+  <span class="tp">inputType</span>: <span class="ts">'email'</span>,
+  <span class="tp">placeholder</span>: <span class="ts">'you@example.com'</span>,
+  <span class="tp">style</span>: <span class="ts">'aurora'</span>,
+  <span class="tp">validate</span>: (value) => {
+    <span class="tk">if</span> (!value.<span class="tf">includes</span>(<span class="ts">'@'</span>)) {
+      <span class="tk">return</span> <span class="ts">'Please enter a valid email'</span>;
+    }
+  }
+});</code></pre>
+            </div>
+          </div>
+
+          <div class="demo-card">
+            <div class="demo-card-header">
+              <h3 class="demo-card-title">Feedback Form</h3>
+              <span class="demo-card-badge">Textarea</span>
+            </div>
+            <div class="demo-card-preview">
+              <button class="btn btn-secondary" onclick="showFeedbackPrompt()">Give Feedback</button>
+            </div>
+            <div class="demo-card-code">
+              <div class="code-header">
+                <span class="code-lang">JavaScript</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+              </div>
+              <pre class="code-block"><code><span class="tk">const</span> feedback = <span class="tk">await</span> Swal.<span class="tf">prompt</span>({
+  <span class="tp">title</span>: <span class="ts">'Share your feedback'</span>,
+  <span class="tp">text</span>: <span class="ts">'We value your opinion'</span>,
+  <span class="tp">inputType</span>: <span class="ts">'textarea'</span>,
+  <span class="tp">placeholder</span>: <span class="ts">'Tell us what you think...'</span>,
+  <span class="tp">rows</span>: <span class="tn">4</span>,
+  <span class="tp">style</span>: <span class="ts">'claymorphism'</span>
+});</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Forms Tab -->
+      <div class="tab-content" id="tab-forms">
+        <div class="demo-grid">
+          <div class="demo-card">
+            <div class="demo-card-header">
+              <h3 class="demo-card-title">Login Form</h3>
+              <span class="demo-card-badge">Multi-field</span>
+            </div>
+            <div class="demo-card-preview">
+              <button class="btn btn-primary" onclick="showLoginForm()">Sign In</button>
+            </div>
+            <div class="demo-card-code">
+              <div class="code-header">
+                <span class="code-lang">JavaScript</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+              </div>
+              <pre class="code-block"><code><span class="tk">const</span> data = <span class="tk">await</span> Swal.<span class="tf">form</span>({
+  <span class="tp">title</span>: <span class="ts">'Welcome back'</span>,
+  <span class="tp">style</span>: <span class="ts">'glassmorphism'</span>,
+  <span class="tp">form</span>: {
+    <span class="tp">fields</span>: [
+      { <span class="tp">name</span>: <span class="ts">'email'</span>, <span class="tp">type</span>: <span class="ts">'email'</span>, <span class="tp">label</span>: <span class="ts">'Email'</span> },
+      { <span class="tp">name</span>: <span class="ts">'password'</span>, <span class="tp">type</span>: <span class="ts">'password'</span>, <span class="tp">label</span>: <span class="ts">'Password'</span> },
+      { <span class="tp">name</span>: <span class="ts">'remember'</span>, <span class="tp">type</span>: <span class="ts">'checkbox'</span>, <span class="tp">label</span>: <span class="ts">'Remember me'</span> }
+    ]
+  },
+  <span class="tp">submitText</span>: <span class="ts">'Sign In'</span>
+});</code></pre>
+            </div>
+          </div>
+
+          <div class="demo-card">
+            <div class="demo-card-header">
+              <h3 class="demo-card-title">Contact Form</h3>
+              <span class="demo-card-badge">Full Featured</span>
+            </div>
+            <div class="demo-card-preview">
+              <button class="btn btn-secondary" onclick="showContactForm()">Contact Us</button>
+            </div>
+            <div class="demo-card-code">
+              <div class="code-header">
+                <span class="code-lang">JavaScript</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+              </div>
+              <pre class="code-block"><code><span class="tk">const</span> data = <span class="tk">await</span> Swal.<span class="tf">form</span>({
+  <span class="tp">title</span>: <span class="ts">'Contact Us'</span>,
+  <span class="tp">style</span>: <span class="ts">'aurora'</span>,
+  <span class="tp">form</span>: {
+    <span class="tp">fields</span>: [
+      { <span class="tp">name</span>: <span class="ts">'name'</span>, <span class="tp">type</span>: <span class="ts">'text'</span>, <span class="tp">label</span>: <span class="ts">'Name'</span> },
+      { <span class="tp">name</span>: <span class="ts">'email'</span>, <span class="tp">type</span>: <span class="ts">'email'</span>, <span class="tp">label</span>: <span class="ts">'Email'</span> },
+      { <span class="tp">name</span>: <span class="ts">'subject'</span>, <span class="tp">type</span>: <span class="ts">'select'</span>, <span class="tp">label</span>: <span class="ts">'Subject'</span>,
+        <span class="tp">options</span>: [
+          { <span class="tp">value</span>: <span class="ts">'support'</span>, <span class="tp">label</span>: <span class="ts">'Support'</span> },
+          { <span class="tp">value</span>: <span class="ts">'sales'</span>, <span class="tp">label</span>: <span class="ts">'Sales'</span> }
+        ]
+      },
+      { <span class="tp">name</span>: <span class="ts">'message'</span>, <span class="tp">type</span>: <span class="ts">'textarea'</span>, <span class="tp">label</span>: <span class="ts">'Message'</span> }
+    ]
+  }
+});</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Toasts Tab -->
+      <div class="tab-content" id="tab-toasts">
+        <div class="demo-grid">
+          <div class="demo-card">
+            <div class="demo-card-header">
+              <h3 class="demo-card-title">Success Toast</h3>
+              <span class="demo-card-badge">Notification</span>
+            </div>
+            <div class="demo-card-preview">
+              <button class="btn btn-success" onclick="showSuccessToast()">Show Toast</button>
+            </div>
+            <div class="demo-card-code">
+              <div class="code-header">
+                <span class="code-lang">JavaScript</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+              </div>
+              <pre class="code-block"><code>Swal.<span class="tf">toast</span>({
+  <span class="tp">title</span>: <span class="ts">'Saved!'</span>,
+  <span class="tp">text</span>: <span class="ts">'Your changes have been saved'</span>,
+  <span class="tp">icon</span>: <span class="ts">'success'</span>,
+  <span class="tp">position</span>: <span class="ts">'top-end'</span>,
+  <span class="tp">duration</span>: <span class="tn">4000</span>
+});</code></pre>
+            </div>
+          </div>
+
+          <div class="demo-card">
+            <div class="demo-card-header">
+              <h3 class="demo-card-title">Error Toast</h3>
+              <span class="demo-card-badge">Alert</span>
+            </div>
+            <div class="demo-card-preview">
+              <button class="btn btn-danger" onclick="showErrorToast()">Show Error</button>
+            </div>
+            <div class="demo-card-code">
+              <div class="code-header">
+                <span class="code-lang">JavaScript</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+              </div>
+              <pre class="code-block"><code>Swal.<span class="tf">toast</span>({
+  <span class="tp">title</span>: <span class="ts">'Error'</span>,
+  <span class="tp">text</span>: <span class="ts">'Could not connect to server'</span>,
+  <span class="tp">icon</span>: <span class="ts">'error'</span>,
+  <span class="tp">duration</span>: <span class="tn">5000</span>
+});</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Advanced Tab -->
+      <div class="tab-content" id="tab-advanced">
+        <div class="demo-grid">
+          <div class="demo-card">
+            <div class="demo-card-header">
+              <h3 class="demo-card-title">Auto-Close Timer</h3>
+              <span class="demo-card-badge">Timer</span>
+            </div>
+            <div class="demo-card-preview">
+              <button class="btn btn-primary" onclick="showTimerModal()">Show with Timer</button>
+            </div>
+            <div class="demo-card-code">
+              <div class="code-header">
+                <span class="code-lang">JavaScript</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+              </div>
+              <pre class="code-block"><code><span class="tk">await</span> Swal.<span class="tf">modal</span>({
+  <span class="tp">title</span>: <span class="ts">'Auto-closing'</span>,
+  <span class="tp">text</span>: <span class="ts">'This will close in 5 seconds'</span>,
+  <span class="tp">icon</span>: <span class="ts">'info'</span>,
+  <span class="tp">timer</span>: <span class="tn">5000</span>,
+  <span class="tp">timerProgressBar</span>: <span class="tb">true</span>,
+  <span class="tp">style</span>: <span class="ts">'aurora'</span>
+});</code></pre>
+            </div>
+          </div>
+
+          <div class="demo-card">
+            <div class="demo-card-header">
+              <h3 class="demo-card-title">With Confetti</h3>
+              <span class="demo-card-badge">Celebration</span>
+            </div>
+            <div class="demo-card-preview">
+              <button class="btn btn-primary" onclick="showConfettiModal()">🎉 Celebrate</button>
+            </div>
+            <div class="demo-card-code">
+              <div class="code-header">
+                <span class="code-lang">JavaScript</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+              </div>
+              <pre class="code-block"><code><span class="tk">await</span> Swal.<span class="tf">success</span>({
+  <span class="tp">title</span>: <span class="ts">'Congratulations! 🎉'</span>,
+  <span class="tp">text</span>: <span class="ts">'You completed the challenge!'</span>,
+  <span class="tp">style</span>: <span class="ts">'aurora'</span>,
+  <span class="tp">showConfetti</span>: <span class="tb">true</span>
+});</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Animations Section -->
+    <section class="section" id="animations">
+      <div class="section-header">
+        <div class="section-badge">Motion Design</div>
+        <h2 class="section-title">Premium Animations</h2>
+        <p class="section-subtitle">Click any animation to see it in action</p>
+      </div>
+
+      <div class="demo-grid">
+        <div class="demo-card">
+          <div class="demo-card-header">
+            <h3 class="demo-card-title">Bounce In</h3>
+          </div>
+          <div class="demo-card-preview">
+            <button class="btn btn-primary" onclick="showAnimationDemo('bounce')">Play Animation</button>
+          </div>
+        </div>
+
+        <div class="demo-card">
+          <div class="demo-card-header">
+            <h3 class="demo-card-title">Elastic</h3>
+          </div>
+          <div class="demo-card-preview">
+            <button class="btn btn-primary" onclick="showAnimationDemo('elastic')">Play Animation</button>
+          </div>
+        </div>
+
+        <div class="demo-card">
+          <div class="demo-card-header">
+            <h3 class="demo-card-title">Flip In</h3>
+          </div>
+          <div class="demo-card-preview">
+            <button class="btn btn-primary" onclick="showAnimationDemo('flip')">Play Animation</button>
+          </div>
+        </div>
+
+        <div class="demo-card">
+          <div class="demo-card-header">
+            <h3 class="demo-card-title">Zoom In</h3>
+          </div>
+          <div class="demo-card-preview">
+            <button class="btn btn-primary" onclick="showAnimationDemo('zoom')">Play Animation</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-icon">S++</div>
+          <span class="logo-text">SweetAlert++</span>
+        </div>
+        <p class="footer-brand-desc">
+          The most comprehensive modal library for modern web applications. Built with enterprise-grade design.
+        </p>
+      </div>
+
+      <div class="footer-column">
+        <h4>Product</h4>
+        <ul class="footer-links">
+          <li><a href="#">Features</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">Changelog</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Resources</h4>
+        <ul class="footer-links">
+          <li><a href="#">Documentation</a></li>
+          <li><a href="#">API Reference</a></li>
+          <li><a href="#">Examples</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Company</h4>
+        <ul class="footer-links">
+          <li><a href="#">About</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 SweetAlert++ Enterprise. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Toast Container -->
+  <div class="toast-container top-end" id="toast-container"></div>
+
+  <!-- Modal Backdrop -->
+  <div class="swal-backdrop" id="swal-backdrop" onclick="closeModalOnBackdrop(event)">
+    <div class="swal-modal" id="swal-modal"></div>
+  </div>
+
+  <script>
+// ============================================================================
+// THEME MANAGEMENT
+// ============================================================================
+function toggleTheme() {
+  const html = document.documentElement;
+  const current = html.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  document.getElementById('theme-icon').textContent = next === 'dark' ? '☀️' : '🌙';
+  localStorage.setItem('theme', next);
+}
+
+// Initialize theme
+(function() {
+  const saved = localStorage.getItem('theme');
+  const preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  const theme = saved || preferred;
+  document.documentElement.setAttribute('data-theme', theme);
+  document.getElementById('theme-icon').textContent = theme === 'dark' ? '☀️' : '🌙';
+})();
+
+// ============================================================================
+// TAB MANAGEMENT
+// ============================================================================
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+  });
+});
+
+// ============================================================================
+// COPY CODE
+// ============================================================================
+function copyCode(btn) {
+  const code = btn.closest('.demo-card-code').querySelector('code').textContent;
+  navigator.clipboard.writeText(code).then(() => {
+    btn.textContent = '✓ Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = '📋 Copy';
+      btn.classList.remove('copied');
+    }, 2000);
+  });
+}
+
+// ============================================================================
+// MODAL SYSTEM
+// ============================================================================
+let activeTimer = null;
+
+function showModal(config) {
+  const backdrop = document.getElementById('swal-backdrop');
+  const modal = document.getElementById('swal-modal');
+
+  // Clear previous timer
+  if (activeTimer) {
+    clearTimeout(activeTimer);
+    activeTimer = null;
+  }
+
+  // Build icon
+  const icons = { success: '✓', error: '✕', warning: '⚠', info: 'ℹ', question: '?' };
+  let iconHtml = '';
+  if (config.icon) {
+    iconHtml = `
+      <div class="swal-icon swal-icon-${config.icon}">
+        <span class="swal-icon-inner">${icons[config.icon] || '?'}</span>
+      </div>
+    `;
+  }
+
+  // Build loading spinner
+  if (config.loading) {
+    iconHtml = `
+      <div class="swal-icon swal-icon-loading">
+        <div class="swal-spinner"></div>
+      </div>
+    `;
+  }
+
+  // Build form/input
+  let bodyHtml = '';
+  if (config.input) {
+    const inputType = config.input.type || 'text';
+    if (inputType === 'textarea') {
+      bodyHtml = `
+        <div class="swal-form">
+          ${config.input.label ? `<label class="swal-label">${config.input.label}</label>` : ''}
+          <textarea class="swal-input swal-textarea" placeholder="${config.input.placeholder || ''}" rows="${config.input.rows || 4}"></textarea>
+        </div>
+      `;
+    } else {
+      bodyHtml = `
+        <div class="swal-form">
+          ${config.input.label ? `<label class="swal-label">${config.input.label}</label>` : ''}
+          <input type="${inputType}" class="swal-input" placeholder="${config.input.placeholder || ''}">
+        </div>
+      `;
+    }
+  }
+
+  if (config.form) {
+    bodyHtml = '<div class="swal-form">';
+    config.form.fields.forEach(field => {
+      if (field.type === 'select') {
+        bodyHtml += `
+          <div class="swal-form-group">
+            <label class="swal-label">${field.label}</label>
+            <select class="swal-input swal-select">
+              ${field.options.map(opt => `<option value="${opt.value}">${opt.label}</option>`).join('')}
+            </select>
+          </div>
+        `;
+      } else if (field.type === 'checkbox') {
+        bodyHtml += `
+          <div class="swal-checkbox-group">
+            <input type="checkbox" class="swal-checkbox" id="field-${field.name}">
+            <label class="swal-checkbox-label" for="field-${field.name}">${field.label}</label>
+          </div>
+        `;
+      } else if (field.type === 'textarea') {
+        bodyHtml += `
+          <div class="swal-form-group">
+            <label class="swal-label">${field.label}</label>
+            <textarea class="swal-input swal-textarea" placeholder="${field.placeholder || ''}" rows="${field.rows || 4}"></textarea>
+          </div>
+        `;
+      } else {
+        bodyHtml += `
+          <div class="swal-form-group">
+            <label class="swal-label">${field.label}</label>
+            <input type="${field.type}" class="swal-input" placeholder="${field.placeholder || ''}">
+          </div>
+        `;
+      }
+    });
+    bodyHtml += '</div>';
+  }
+
+  // Build buttons
+  let footerHtml = '';
+  if (config.showButtons !== false) {
+    footerHtml = '<div class="swal-footer swal-footer-center">';
+    if (config.showCancel) {
+      footerHtml += `<button class="btn btn-secondary" onclick="closeModal()">${config.cancelText || 'Cancel'}</button>`;
+    }
+    if (config.showDeny) {
+      footerHtml += `<button class="btn btn-secondary" onclick="closeModal('deny')">${config.denyText || "Don't Save"}</button>`;
+    }
+    const confirmClass = config.confirmVariant === 'danger' ? 'btn-danger' : 'btn-primary';
+    footerHtml += `<button class="btn ${confirmClass}" onclick="closeModal('confirm')">${config.confirmText || 'OK'}</button>`;
+    footerHtml += '</div>';
+  }
+
+  // Build progress bar
+  let progressHtml = '';
+  if (config.timer && config.showProgress !== false) {
+    progressHtml = '<div class="swal-progress"><div class="swal-progress-bar" id="swal-progress-bar"></div></div>';
+  }
+
+  // Apply style class
+  const styleClass = config.style ? `swal-modal-${config.style}` : '';
+  const animClass = config.animation ? `animate-${config.animation}` : '';
+
+  modal.className = `swal-modal ${styleClass} ${animClass}`;
+  modal.innerHTML = `
+    <button class="swal-close" onclick="closeModal()">×</button>
+    <div class="swal-header">
+      ${iconHtml}
+      ${config.title ? `<h2 class="swal-title">${config.title}</h2>` : ''}
+      ${config.text ? `<p class="swal-text">${config.text}</p>` : ''}
+    </div>
+    ${bodyHtml ? `<div class="swal-body">${bodyHtml}</div>` : ''}
+    ${footerHtml}
+    ${progressHtml}
+  `;
+
+  // Show modal
+  backdrop.classList.add('active');
+
+  // Focus first input
+  setTimeout(() => {
+    const input = modal.querySelector('.swal-input');
+    if (input) input.focus();
+  }, 100);
+
+  // Timer
+  if (config.timer) {
+    const progressBar = document.getElementById('swal-progress-bar');
+    if (progressBar) {
+      progressBar.style.width = '100%';
+      progressBar.style.transition = `width ${config.timer}ms linear`;
+      setTimeout(() => progressBar.style.width = '0%', 50);
+    }
+    activeTimer = setTimeout(() => closeModal('timer'), config.timer);
+  }
+
+  // Confetti
+  if (config.showConfetti) {
+    setTimeout(createConfetti, 300);
+  }
+}
+
+function closeModal(reason) {
+  const backdrop = document.getElementById('swal-backdrop');
+  backdrop.classList.remove('active');
+  if (activeTimer) {
+    clearTimeout(activeTimer);
+    activeTimer = null;
+  }
+}
+
+function closeModalOnBackdrop(e) {
+  if (e.target === e.currentTarget) closeModal('backdrop');
+}
+
+// ============================================================================
+// TOAST SYSTEM
+// ============================================================================
+let toastCounter = 0;
+
+function showToast(config) {
+  const container = document.getElementById('toast-container');
+  const id = ++toastCounter;
+  const icons = { success: '✓', error: '✕', warning: '⚠', info: 'ℹ' };
+
+  const toast = document.createElement('div');
+  toast.className = `toast toast-${config.icon || 'info'}`;
+  toast.id = `toast-${id}`;
+  toast.innerHTML = `
+    <div class="toast-icon">${icons[config.icon] || 'ℹ'}</div>
+    <div class="toast-content">
+      <div class="toast-title">${config.title}</div>
+      ${config.text ? `<div class="toast-message">${config.text}</div>` : ''}
+    </div>
+    <button class="toast-close" onclick="dismissToast(${id})">×</button>
+    <div class="toast-progress" style="width: 100%"></div>
+  `;
+
+  container.appendChild(toast);
+  setTimeout(() => toast.classList.add('show'), 10);
+
+  // Progress animation
+  const duration = config.duration || 4000;
+  const progress = toast.querySelector('.toast-progress');
+  progress.style.transition = `width ${duration}ms linear`;
+  setTimeout(() => progress.style.width = '0%', 50);
+
+  setTimeout(() => dismissToast(id), duration);
+  return id;
+}
+
+function dismissToast(id) {
+  const toast = document.getElementById(`toast-${id}`);
+  if (toast) {
+    toast.classList.remove('show');
+    setTimeout(() => toast.remove(), 400);
+  }
+}
+
+// ============================================================================
+// CONFETTI
+// ============================================================================
+function createConfetti() {
+  const container = document.createElement('div');
+  container.className = 'confetti-container';
+  document.body.appendChild(container);
+
+  const colors = ['#6366f1', '#ec4899', '#10b981', '#f59e0b', '#ef4444', '#3b82f6', '#8b5cf6'];
+
+  for (let i = 0; i < 150; i++) {
+    const confetti = document.createElement('div');
+    confetti.className = 'confetti';
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    const size = Math.random() * 10 + 5;
+    const left = Math.random() * 100;
+    const delay = Math.random() * 1;
+    const duration = Math.random() * 2 + 2;
+
+    confetti.style.cssText = `
+      left: ${left}%;
+      width: ${size}px;
+      height: ${size}px;
+      background: ${color};
+      border-radius: ${Math.random() > 0.5 ? '50%' : '2px'};
+      animation: confetti-fall ${duration}s linear ${delay}s forwards;
+    `;
+    container.appendChild(confetti);
+  }
+
+  setTimeout(() => container.remove(), 5000);
+}
+
+// ============================================================================
+// DEMO FUNCTIONS
+// ============================================================================
+function showQuickDemo() {
+  showModal({
+    title: 'Welcome to SweetAlert++ Enterprise',
+    text: 'Experience the most beautiful modal library ever created.',
+    icon: 'success',
+    style: 'aurora',
+    confirmText: 'Get Started',
+    showConfetti: true
+  });
+}
+
+// Style demos
+function showStyleDemo(style) {
+  const names = {
+    neumorphism: 'Neumorphism',
+    claymorphism: 'Claymorphism',
+    aurora: 'Aurora UI',
+    glassmorphism: 'Glassmorphism'
+  };
+  const descs = {
+    neumorphism: 'Soft UI with extruded, clay-like appearance using dual shadows.',
+    claymorphism: '3D inflated shapes with playful aesthetics and soft shadows.',
+    aurora: 'Flowing gradients with ethereal glow effects.',
+    glassmorphism: 'Frosted glass effect with beautiful blur.'
+  };
+  showModal({
+    title: names[style],
+    text: descs[style],
+    icon: 'info',
+    style: style
+  });
+}
+
+// Alert demos
+function showSuccessAlert() {
+  showModal({
+    title: 'Success!',
+    text: 'Your operation completed successfully.',
+    icon: 'success',
+    style: 'aurora',
+    showConfetti: true,
+    timer: 3000
+  });
+}
+
+function showErrorAlert() {
+  showModal({
+    title: 'Oops!',
+    text: 'Something went wrong. Please try again.',
+    icon: 'error',
+    style: 'neumorphism'
+  });
+}
+
+function showWarningAlert() {
+  showModal({
+    title: 'Warning',
+    text: 'This action may have consequences.',
+    icon: 'warning',
+    style: 'claymorphism'
+  });
+}
+
+function showInfoAlert() {
+  showModal({
+    title: 'Did you know?',
+    text: 'You can customize every aspect of this modal.',
+    icon: 'info',
+    style: 'glassmorphism'
+  });
+}
+
+// Confirm demos
+function showDeleteConfirm() {
+  showModal({
+    title: 'Delete this item?',
+    text: 'This action cannot be undone.',
+    icon: 'warning',
+    style: 'aurora',
+    confirmText: 'Delete',
+    confirmVariant: 'danger',
+    cancelText: 'Keep',
+    showCancel: true
+  });
+}
+
+function showLogoutConfirm() {
+  showModal({
+    title: 'Logout?',
+    text: 'You will need to login again.',
+    icon: 'question',
+    style: 'neumorphism',
+    confirmText: 'Yes, logout',
+    cancelText: 'Stay',
+    showCancel: true
+  });
+}
+
+// Prompt demos
+function showEmailPrompt() {
+  showModal({
+    title: 'Subscribe to newsletter',
+    text: 'Get updates on new features.',
+    style: 'aurora',
+    input: { type: 'email', placeholder: 'you@example.com', label: 'Email Address' },
+    confirmText: 'Subscribe',
+    cancelText: 'Cancel',
+    showCancel: true
+  });
+}
+
+function showFeedbackPrompt() {
+  showModal({
+    title: 'Share your feedback',
+    text: 'We value your opinion.',
+    style: 'claymorphism',
+    input: { type: 'textarea', placeholder: 'Tell us what you think...', label: 'Your Feedback', rows: 4 },
+    confirmText: 'Submit',
+    cancelText: 'Cancel',
+    showCancel: true
+  });
+}
+
+// Form demos
+function showLoginForm() {
+  showModal({
+    title: 'Welcome back',
+    style: 'glassmorphism',
+    form: {
+      fields: [
+        { name: 'email', type: 'email', label: 'Email', placeholder: 'you@example.com' },
+        { name: 'password', type: 'password', label: 'Password', placeholder: '••••••••' },
+        { name: 'remember', type: 'checkbox', label: 'Remember me' }
+      ]
+    },
+    confirmText: 'Sign In',
+    cancelText: 'Cancel',
+    showCancel: true
+  });
+}
+
+function showContactForm() {
+  showModal({
+    title: 'Contact Us',
+    text: 'We typically respond within 24 hours.',
+    style: 'aurora',
+    form: {
+      fields: [
+        { name: 'name', type: 'text', label: 'Name', placeholder: 'Your name' },
+        { name: 'email', type: 'email', label: 'Email', placeholder: 'you@example.com' },
+        { name: 'subject', type: 'select', label: 'Subject', options: [
+          { value: 'support', label: 'Technical Support' },
+          { value: 'sales', label: 'Sales Inquiry' },
+          { value: 'other', label: 'Other' }
+        ]},
+        { name: 'message', type: 'textarea', label: 'Message', placeholder: 'How can we help?', rows: 4 }
+      ]
+    },
+    confirmText: 'Send Message',
+    cancelText: 'Cancel',
+    showCancel: true
+  });
+}
+
+// Toast demos
+function showSuccessToast() {
+  showToast({ title: 'Saved!', text: 'Your changes have been saved.', icon: 'success' });
+}
+
+function showErrorToast() {
+  showToast({ title: 'Error', text: 'Could not connect to server.', icon: 'error', duration: 5000 });
+}
+
+// Advanced demos
+function showTimerModal() {
+  showModal({
+    title: 'Auto-closing',
+    text: 'This modal will close in 5 seconds.',
+    icon: 'info',
+    style: 'aurora',
+    timer: 5000,
+    showButtons: false
+  });
+}
+
+function showConfettiModal() {
+  showModal({
+    title: 'Congratulations! 🎉',
+    text: 'You completed the challenge!',
+    icon: 'success',
+    style: 'aurora',
+    showConfetti: true
+  });
+}
+
+// Animation demos
+function showAnimationDemo(anim) {
+  showModal({
+    title: `${anim.charAt(0).toUpperCase() + anim.slice(1)} Animation`,
+    text: 'This modal uses a custom entrance animation.',
+    icon: 'info',
+    style: 'aurora',
+    animation: anim === 'bounce' ? 'bounce-in' : anim === 'flip' ? 'flip-in' : anim === 'zoom' ? 'zoom-in' : 'elastic'
+  });
+}
+  </script>
+</body>
+</html>

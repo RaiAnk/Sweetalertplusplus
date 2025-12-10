@@ -1,0 +1,708 @@
+/**
+ * Sweet Alert++ Design System
+ * Enterprise-Grade Visual Design Tokens
+ * Crafted by world-class designers for global deployment
+ */
+
+/* Import premium font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* ============================================================================
+     Brand Colors - Sophisticated Enterprise Palette
+     ============================================================================ */
+
+  /* Primary - Deep Indigo with Electric Accents */
+  --swal-primary-50: #eef2ff;
+  --swal-primary-100: #e0e7ff;
+  --swal-primary-200: #c7d2fe;
+  --swal-primary-300: #a5b4fc;
+  --swal-primary-400: #818cf8;
+  --swal-primary-500: #6366f1;
+  --swal-primary-600: #4f46e5;
+  --swal-primary-700: #4338ca;
+  --swal-primary-800: #3730a3;
+  --swal-primary-900: #312e81;
+  --swal-primary: var(--swal-primary-600);
+  --swal-primary-rgb: 79, 70, 229;
+
+  /* Semantic Colors */
+  --swal-success: #10b981;
+  --swal-success-light: #d1fae5;
+  --swal-success-dark: #059669;
+  --swal-success-rgb: 16, 185, 129;
+
+  --swal-error: #ef4444;
+  --swal-error-light: #fee2e2;
+  --swal-error-dark: #dc2626;
+  --swal-error-rgb: 239, 68, 68;
+
+  --swal-warning: #f59e0b;
+  --swal-warning-light: #fef3c7;
+  --swal-warning-dark: #d97706;
+  --swal-warning-rgb: 245, 158, 11;
+
+  --swal-info: #3b82f6;
+  --swal-info-light: #dbeafe;
+  --swal-info-dark: #2563eb;
+  --swal-info-rgb: 59, 130, 246;
+
+  /* ============================================================================
+     Neutral Colors - Rich Grays with Subtle Warmth
+     ============================================================================ */
+  --swal-gray-50: #fafafa;
+  --swal-gray-100: #f4f4f5;
+  --swal-gray-200: #e4e4e7;
+  --swal-gray-300: #d4d4d8;
+  --swal-gray-400: #a1a1aa;
+  --swal-gray-500: #71717a;
+  --swal-gray-600: #52525b;
+  --swal-gray-700: #3f3f46;
+  --swal-gray-800: #27272a;
+  --swal-gray-900: #18181b;
+  --swal-gray-950: #09090b;
+
+  /* ============================================================================
+     Surface & Background Colors
+     ============================================================================ */
+  --swal-bg: #ffffff;
+  --swal-bg-secondary: var(--swal-gray-50);
+  --swal-bg-tertiary: var(--swal-gray-100);
+  --swal-bg-elevated: #ffffff;
+  --swal-bg-overlay: rgba(0, 0, 0, 0.6);
+  --swal-bg-glass: rgba(255, 255, 255, 0.85);
+
+  /* Text Colors */
+  --swal-text: var(--swal-gray-900);
+  --swal-text-secondary: var(--swal-gray-600);
+  --swal-text-tertiary: var(--swal-gray-500);
+  --swal-text-inverse: #ffffff;
+
+  /* Border Colors */
+  --swal-border: var(--swal-gray-200);
+  --swal-border-light: var(--swal-gray-100);
+  --swal-border-focus: var(--swal-primary-400);
+
+  /* ============================================================================
+     Typography Scale
+     ============================================================================ */
+  --swal-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --swal-font-mono: 'JetBrains Mono', 'Fira Code', Consolas, Monaco, 'Andale Mono', monospace;
+
+  --swal-text-xs: 0.75rem;
+  --swal-text-sm: 0.875rem;
+  --swal-text-base: 1rem;
+  --swal-text-lg: 1.125rem;
+  --swal-text-xl: 1.25rem;
+  --swal-text-2xl: 1.5rem;
+  --swal-text-3xl: 1.875rem;
+  --swal-text-4xl: 2.25rem;
+
+  /* ============================================================================
+     Spacing Scale
+     ============================================================================ */
+  --swal-space-1: 0.25rem;
+  --swal-space-2: 0.5rem;
+  --swal-space-3: 0.75rem;
+  --swal-space-4: 1rem;
+  --swal-space-5: 1.25rem;
+  --swal-space-6: 1.5rem;
+  --swal-space-8: 2rem;
+  --swal-space-10: 2.5rem;
+  --swal-space-12: 3rem;
+
+  /* ============================================================================
+     Border Radius
+     ============================================================================ */
+  --swal-radius-sm: 0.5rem;
+  --swal-radius: 0.75rem;
+  --swal-radius-md: 1rem;
+  --swal-radius-lg: 1.25rem;
+  --swal-radius-xl: 1.5rem;
+  --swal-radius-2xl: 2rem;
+  --swal-radius-3xl: 2.5rem;
+  --swal-radius-full: 9999px;
+
+  /* ============================================================================
+     Advanced Shadow System - Layered Realistic Depth
+     ============================================================================ */
+
+  /* Subtle elevation */
+  --swal-shadow-xs:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 1px 1px rgba(0, 0, 0, 0.06);
+
+  /* Low elevation */
+  --swal-shadow-sm:
+    0 1px 3px rgba(0, 0, 0, 0.06),
+    0 2px 4px rgba(0, 0, 0, 0.04),
+    0 1px 1px rgba(0, 0, 0, 0.04);
+
+  /* Medium elevation */
+  --swal-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.04),
+    0 4px 8px rgba(0, 0, 0, 0.04),
+    0 8px 16px rgba(0, 0, 0, 0.04);
+
+  /* High elevation */
+  --swal-shadow-md:
+    0 4px 6px rgba(0, 0, 0, 0.04),
+    0 8px 15px rgba(0, 0, 0, 0.05),
+    0 16px 30px rgba(0, 0, 0, 0.05);
+
+  /* Extra high elevation - modals */
+  --swal-shadow-lg:
+    0 8px 10px rgba(0, 0, 0, 0.04),
+    0 16px 24px rgba(0, 0, 0, 0.06),
+    0 24px 48px rgba(0, 0, 0, 0.08),
+    0 32px 64px rgba(0, 0, 0, 0.06);
+
+  /* Dramatic elevation */
+  --swal-shadow-xl:
+    0 12px 20px rgba(0, 0, 0, 0.06),
+    0 24px 40px rgba(0, 0, 0, 0.08),
+    0 48px 80px rgba(0, 0, 0, 0.1);
+
+  /* Floating elevation */
+  --swal-shadow-2xl:
+    0 20px 30px rgba(0, 0, 0, 0.08),
+    0 40px 60px rgba(0, 0, 0, 0.1),
+    0 60px 90px rgba(0, 0, 0, 0.12);
+
+  /* Neumorphism Shadows */
+  --swal-shadow-neu-raised:
+    8px 8px 16px rgba(0, 0, 0, 0.08),
+    -8px -8px 16px rgba(255, 255, 255, 0.95);
+
+  --swal-shadow-neu-pressed:
+    inset 4px 4px 8px rgba(0, 0, 0, 0.08),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.95);
+
+  --swal-shadow-neu-flat:
+    4px 4px 8px rgba(0, 0, 0, 0.06),
+    -4px -4px 8px rgba(255, 255, 255, 0.9);
+
+  /* Claymorphism Shadows */
+  --swal-shadow-clay:
+    0 12px 40px rgba(0, 0, 0, 0.15),
+    inset 0 -8px 20px rgba(0, 0, 0, 0.03),
+    inset 0 8px 20px rgba(255, 255, 255, 0.5);
+
+  /* Glow Effects */
+  --swal-shadow-glow-primary:
+    0 0 20px rgba(79, 70, 229, 0.35),
+    0 0 40px rgba(79, 70, 229, 0.2),
+    0 0 80px rgba(79, 70, 229, 0.1);
+
+  --swal-shadow-glow-success:
+    0 0 20px rgba(16, 185, 129, 0.35),
+    0 0 40px rgba(16, 185, 129, 0.2);
+
+  --swal-shadow-glow-error:
+    0 0 20px rgba(239, 68, 68, 0.35),
+    0 0 40px rgba(239, 68, 68, 0.2);
+
+  --swal-shadow-glow-warning:
+    0 0 20px rgba(245, 158, 11, 0.35),
+    0 0 40px rgba(245, 158, 11, 0.2);
+
+  /* Inner Shadows */
+  --swal-shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+  --swal-shadow-inner-md: inset 0 4px 8px rgba(0, 0, 0, 0.08);
+
+  /* ============================================================================
+     Gradients - Mesh & Aurora Effects
+     ============================================================================ */
+
+  /* Primary Gradients */
+  --swal-gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --swal-gradient-primary-vibrant: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+
+  /* Mesh Gradients (Apple-style) */
+  --swal-gradient-mesh:
+    radial-gradient(at 40% 20%, hsla(228, 89%, 74%, 0.4) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, hsla(189, 100%, 56%, 0.3) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, hsla(355, 100%, 73%, 0.25) 0px, transparent 50%),
+    radial-gradient(at 80% 50%, hsla(340, 100%, 76%, 0.3) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, hsla(269, 100%, 77%, 0.3) 0px, transparent 50%),
+    radial-gradient(at 80% 100%, hsla(240, 100%, 70%, 0.35) 0px, transparent 50%);
+
+  /* Aurora Gradient */
+  --swal-gradient-aurora: linear-gradient(
+    125deg,
+    rgba(99, 102, 241, 0.12) 0%,
+    rgba(139, 92, 246, 0.12) 25%,
+    rgba(217, 70, 239, 0.08) 50%,
+    rgba(56, 189, 248, 0.12) 75%,
+    rgba(34, 211, 238, 0.12) 100%
+  );
+
+  /* Glassmorphism */
+  --swal-glass-bg: rgba(255, 255, 255, 0.75);
+  --swal-glass-border: rgba(255, 255, 255, 0.4);
+  --swal-glass-blur: blur(24px);
+
+  /* ============================================================================
+     Animation & Transitions
+     ============================================================================ */
+
+  --swal-duration-fast: 150ms;
+  --swal-duration-normal: 250ms;
+  --swal-duration-slow: 400ms;
+  --swal-duration-slower: 600ms;
+
+  /* Spring-like easings */
+  --swal-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --swal-ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --swal-ease-smooth: cubic-bezier(0.23, 1, 0.32, 1);
+  --swal-ease-expo-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ============================================================================
+     Z-Index Scale
+     ============================================================================ */
+  --swal-z-modal-backdrop: 10000;
+  --swal-z-modal: 10001;
+  --swal-z-toast: 10100;
+
+  /* ============================================================================
+     Component Variables
+     ============================================================================ */
+  --swal-modal-width-sm: 340px;
+  --swal-modal-width-md: 480px;
+  --swal-modal-width-lg: 600px;
+  --swal-modal-width-xl: 780px;
+
+  --swal-backdrop-blur: blur(12px);
+  --swal-backdrop-color: rgba(9, 9, 11, 0.65);
+
+  --swal-input-height: 3rem;
+  --swal-btn-height: 3rem;
+  --swal-form-gap: 1.25rem;
+
+  /* Legacy compatibility */
+  --modal-color-white: #ffffff;
+  --modal-color-gray-50: var(--swal-gray-50);
+  --modal-color-gray-100: var(--swal-gray-100);
+  --modal-color-gray-200: var(--swal-gray-200);
+  --modal-color-gray-300: var(--swal-gray-300);
+  --modal-color-gray-400: var(--swal-gray-400);
+  --modal-color-gray-500: var(--swal-gray-500);
+  --modal-color-gray-600: var(--swal-gray-600);
+  --modal-color-gray-700: var(--swal-gray-700);
+  --modal-color-gray-800: var(--swal-gray-800);
+  --modal-color-gray-900: var(--swal-gray-900);
+  --modal-color-primary: var(--swal-primary);
+  --modal-color-success: var(--swal-success);
+  --modal-color-error: var(--swal-error);
+  --modal-color-warning: var(--swal-warning);
+  --modal-color-info: var(--swal-info);
+
+  --modal-bg: var(--swal-bg);
+  --modal-text: var(--swal-text);
+  --modal-text-muted: var(--swal-text-secondary);
+  --modal-border: var(--swal-border);
+  --modal-radius-xl: var(--swal-radius-xl);
+  --modal-shadow-xl: var(--swal-shadow-xl);
+  --modal-backdrop-bg: var(--swal-backdrop-color);
+  --modal-font-family: var(--swal-font-sans);
+}
+
+/* ============================================================================
+   Keyframe Animations
+   ============================================================================ */
+
+/* Aurora flow animation */
+@keyframes swal-aurora-flow {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Glow pulse */
+@keyframes swal-glow-pulse {
+  0%, 100% {
+    opacity: 1;
+    filter: blur(20px);
+  }
+  50% {
+    opacity: 0.6;
+    filter: blur(30px);
+  }
+}
+
+/* Morphing blob */
+@keyframes swal-morph {
+  0%, 100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  25% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+  50% {
+    border-radius: 50% 60% 30% 60% / 30% 60% 70% 40%;
+  }
+  75% {
+    border-radius: 60% 40% 60% 30% / 70% 30% 50% 60%;
+  }
+}
+
+/* Floating animation */
+@keyframes swal-float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+  66% {
+    transform: translateY(-4px) rotate(-1deg);
+  }
+}
+
+/* Shimmer effect */
+@keyframes swal-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Ripple effect */
+@keyframes swal-ripple {
+  0% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+/* Icon bounce */
+@keyframes swal-icon-bounce {
+  0%, 100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  75% {
+    transform: scale(1.05);
+  }
+}
+
+/* Success checkmark draw */
+@keyframes swal-checkmark-draw {
+  0% {
+    stroke-dashoffset: 100;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Error X draw */
+@keyframes swal-x-draw {
+  0% {
+    stroke-dashoffset: 50;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Spinner rotation */
+@keyframes swal-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Slide & fade in */
+@keyframes swal-slide-up-fade {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Backdrop fade */
+@keyframes swal-backdrop-fade {
+  0% {
+    opacity: 0;
+    backdrop-filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    backdrop-filter: var(--swal-backdrop-blur);
+  }
+}
+
+/* ============================================================================
+   Dark Theme
+   Apply with: html[data-theme="dark"] or .swal-dark
+   ============================================================================ */
+
+[data-theme="dark"],
+.swal-dark {
+  /* Surface & Background Colors - Dark Mode */
+  --swal-bg: #0f0f23;
+  --swal-bg-secondary: #1a1a2e;
+  --swal-bg-tertiary: #252542;
+  --swal-bg-elevated: #1e1e38;
+  --swal-bg-overlay: rgba(0, 0, 0, 0.8);
+  --swal-bg-glass: rgba(30, 30, 56, 0.85);
+
+  /* Text Colors - Dark Mode */
+  --swal-text: #f1f5f9;
+  --swal-text-secondary: #94a3b8;
+  --swal-text-tertiary: #64748b;
+  --swal-text-inverse: #0f0f23;
+
+  /* Border Colors - Dark Mode */
+  --swal-border: rgba(255, 255, 255, 0.1);
+  --swal-border-light: rgba(255, 255, 255, 0.05);
+  --swal-border-focus: var(--swal-primary-400);
+
+  /* Semantic Colors - Adjusted for Dark Mode */
+  --swal-success-light: rgba(16, 185, 129, 0.15);
+  --swal-error-light: rgba(239, 68, 68, 0.15);
+  --swal-warning-light: rgba(245, 158, 11, 0.15);
+  --swal-info-light: rgba(59, 130, 246, 0.15);
+
+  /* Shadows - Dark Mode (more dramatic) */
+  --swal-shadow-xs:
+    0 1px 2px rgba(0, 0, 0, 0.2),
+    0 1px 1px rgba(0, 0, 0, 0.15);
+
+  --swal-shadow-sm:
+    0 1px 3px rgba(0, 0, 0, 0.2),
+    0 2px 4px rgba(0, 0, 0, 0.15),
+    0 1px 1px rgba(0, 0, 0, 0.1);
+
+  --swal-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.15),
+    0 4px 8px rgba(0, 0, 0, 0.15),
+    0 8px 16px rgba(0, 0, 0, 0.1);
+
+  --swal-shadow-md:
+    0 4px 6px rgba(0, 0, 0, 0.2),
+    0 8px 15px rgba(0, 0, 0, 0.15),
+    0 16px 30px rgba(0, 0, 0, 0.1);
+
+  --swal-shadow-lg:
+    0 8px 10px rgba(0, 0, 0, 0.2),
+    0 16px 24px rgba(0, 0, 0, 0.2),
+    0 24px 48px rgba(0, 0, 0, 0.15),
+    0 32px 64px rgba(0, 0, 0, 0.1);
+
+  --swal-shadow-xl:
+    0 12px 20px rgba(0, 0, 0, 0.25),
+    0 24px 40px rgba(0, 0, 0, 0.2),
+    0 48px 80px rgba(0, 0, 0, 0.15);
+
+  --swal-shadow-2xl:
+    0 20px 30px rgba(0, 0, 0, 0.3),
+    0 40px 60px rgba(0, 0, 0, 0.25),
+    0 60px 90px rgba(0, 0, 0, 0.2);
+
+  /* Neumorphism Shadows - Dark Mode */
+  --swal-shadow-neu-raised:
+    8px 8px 20px rgba(0, 0, 0, 0.4),
+    -8px -8px 20px rgba(60, 60, 100, 0.15);
+
+  --swal-shadow-neu-pressed:
+    inset 4px 4px 10px rgba(0, 0, 0, 0.4),
+    inset -4px -4px 10px rgba(60, 60, 100, 0.1);
+
+  --swal-shadow-neu-flat:
+    4px 4px 10px rgba(0, 0, 0, 0.3),
+    -4px -4px 10px rgba(60, 60, 100, 0.1);
+
+  /* Claymorphism Shadows - Dark Mode */
+  --swal-shadow-clay:
+    0 12px 40px rgba(0, 0, 0, 0.35),
+    inset 0 -8px 20px rgba(0, 0, 0, 0.15),
+    inset 0 8px 20px rgba(255, 255, 255, 0.05);
+
+  /* Glow Effects - Enhanced for Dark Mode */
+  --swal-shadow-glow-primary:
+    0 0 20px rgba(99, 102, 241, 0.5),
+    0 0 40px rgba(99, 102, 241, 0.3),
+    0 0 80px rgba(99, 102, 241, 0.15);
+
+  --swal-shadow-glow-success:
+    0 0 20px rgba(16, 185, 129, 0.5),
+    0 0 40px rgba(16, 185, 129, 0.3);
+
+  --swal-shadow-glow-error:
+    0 0 20px rgba(239, 68, 68, 0.5),
+    0 0 40px rgba(239, 68, 68, 0.3);
+
+  --swal-shadow-glow-warning:
+    0 0 20px rgba(245, 158, 11, 0.5),
+    0 0 40px rgba(245, 158, 11, 0.3);
+
+  /* Inner Shadows - Dark Mode */
+  --swal-shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+  --swal-shadow-inner-md: inset 0 4px 8px rgba(0, 0, 0, 0.25);
+
+  /* Glassmorphism - Dark Mode */
+  --swal-glass-bg: rgba(30, 30, 56, 0.75);
+  --swal-glass-border: rgba(255, 255, 255, 0.1);
+
+  /* Aurora Gradient - Dark Mode (more vibrant) */
+  --swal-gradient-aurora: linear-gradient(
+    125deg,
+    rgba(99, 102, 241, 0.2) 0%,
+    rgba(139, 92, 246, 0.2) 25%,
+    rgba(217, 70, 239, 0.15) 50%,
+    rgba(56, 189, 248, 0.2) 75%,
+    rgba(34, 211, 238, 0.2) 100%
+  );
+
+  /* Backdrop - Dark Mode */
+  --swal-backdrop-color: rgba(0, 0, 0, 0.75);
+
+  /* Legacy compatibility - Dark Mode */
+  --modal-bg: var(--swal-bg);
+  --modal-text: var(--swal-text);
+  --modal-text-muted: var(--swal-text-secondary);
+  --modal-border: var(--swal-border);
+  --modal-backdrop-bg: var(--swal-backdrop-color);
+}
+
+/* ============================================================================
+   System Preference Detection
+   Automatically applies dark theme when user prefers dark mode
+   ============================================================================ */
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    /* Surface & Background Colors - Dark Mode */
+    --swal-bg: #0f0f23;
+    --swal-bg-secondary: #1a1a2e;
+    --swal-bg-tertiary: #252542;
+    --swal-bg-elevated: #1e1e38;
+    --swal-bg-overlay: rgba(0, 0, 0, 0.8);
+    --swal-bg-glass: rgba(30, 30, 56, 0.85);
+
+    /* Text Colors - Dark Mode */
+    --swal-text: #f1f5f9;
+    --swal-text-secondary: #94a3b8;
+    --swal-text-tertiary: #64748b;
+    --swal-text-inverse: #0f0f23;
+
+    /* Border Colors - Dark Mode */
+    --swal-border: rgba(255, 255, 255, 0.1);
+    --swal-border-light: rgba(255, 255, 255, 0.05);
+
+    /* Semantic Colors Light variants - Dark Mode */
+    --swal-success-light: rgba(16, 185, 129, 0.15);
+    --swal-error-light: rgba(239, 68, 68, 0.15);
+    --swal-warning-light: rgba(245, 158, 11, 0.15);
+    --swal-info-light: rgba(59, 130, 246, 0.15);
+
+    /* Shadows - Dark Mode */
+    --swal-shadow-lg:
+      0 8px 10px rgba(0, 0, 0, 0.2),
+      0 16px 24px rgba(0, 0, 0, 0.2),
+      0 24px 48px rgba(0, 0, 0, 0.15),
+      0 32px 64px rgba(0, 0, 0, 0.1);
+
+    --swal-shadow-neu-raised:
+      8px 8px 20px rgba(0, 0, 0, 0.4),
+      -8px -8px 20px rgba(60, 60, 100, 0.15);
+
+    --swal-shadow-neu-pressed:
+      inset 4px 4px 10px rgba(0, 0, 0, 0.4),
+      inset -4px -4px 10px rgba(60, 60, 100, 0.1);
+
+    --swal-shadow-clay:
+      0 12px 40px rgba(0, 0, 0, 0.35),
+      inset 0 -8px 20px rgba(0, 0, 0, 0.15),
+      inset 0 8px 20px rgba(255, 255, 255, 0.05);
+
+    /* Glassmorphism - Dark Mode */
+    --swal-glass-bg: rgba(30, 30, 56, 0.75);
+    --swal-glass-border: rgba(255, 255, 255, 0.1);
+
+    /* Backdrop - Dark Mode */
+    --swal-backdrop-color: rgba(0, 0, 0, 0.75);
+
+    /* Legacy compatibility */
+    --modal-bg: var(--swal-bg);
+    --modal-text: var(--swal-text);
+    --modal-text-muted: var(--swal-text-secondary);
+    --modal-border: var(--swal-border);
+    --modal-backdrop-bg: var(--swal-backdrop-color);
+  }
+}
+
+/* ============================================================================
+   Explicit Light Theme (Force light mode)
+   Apply with: html[data-theme="light"] or .swal-light
+   ============================================================================ */
+
+[data-theme="light"],
+.swal-light {
+  --swal-bg: #ffffff;
+  --swal-bg-secondary: var(--swal-gray-50);
+  --swal-bg-tertiary: var(--swal-gray-100);
+  --swal-bg-elevated: #ffffff;
+  --swal-bg-overlay: rgba(0, 0, 0, 0.6);
+  --swal-bg-glass: rgba(255, 255, 255, 0.85);
+
+  --swal-text: var(--swal-gray-900);
+  --swal-text-secondary: var(--swal-gray-600);
+  --swal-text-tertiary: var(--swal-gray-500);
+  --swal-text-inverse: #ffffff;
+
+  --swal-border: var(--swal-gray-200);
+  --swal-border-light: var(--swal-gray-100);
+
+  --swal-success-light: #d1fae5;
+  --swal-error-light: #fee2e2;
+  --swal-warning-light: #fef3c7;
+  --swal-info-light: #dbeafe;
+
+  --swal-shadow-neu-raised:
+    8px 8px 16px rgba(0, 0, 0, 0.08),
+    -8px -8px 16px rgba(255, 255, 255, 0.95);
+
+  --swal-shadow-neu-pressed:
+    inset 4px 4px 8px rgba(0, 0, 0, 0.08),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.95);
+
+  --swal-shadow-clay:
+    0 12px 40px rgba(0, 0, 0, 0.15),
+    inset 0 -8px 20px rgba(0, 0, 0, 0.03),
+    inset 0 8px 20px rgba(255, 255, 255, 0.5);
+
+  --swal-glass-bg: rgba(255, 255, 255, 0.75);
+  --swal-glass-border: rgba(255, 255, 255, 0.4);
+
+  --swal-backdrop-color: rgba(9, 9, 11, 0.65);
+
+  --modal-bg: var(--swal-bg);
+  --modal-text: var(--swal-text);
+  --modal-text-muted: var(--swal-text-secondary);
+  --modal-border: var(--swal-border);
+  --modal-backdrop-bg: var(--swal-backdrop-color);
+}

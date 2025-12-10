@@ -1,0 +1,1473 @@
+/**
+ * SweetAlert++ Modal Styles
+ * Enterprise-Grade Design System
+ * Featuring Neumorphism, Claymorphism, Aurora Effects, and Premium Micro-interactions
+ */
+
+/* ============================================================================
+   Base / Reset
+   ============================================================================ */
+
+.swal-root,
+.swal-root *,
+.swal-root *::before,
+.swal-root *::after {
+  box-sizing: border-box;
+}
+
+.swal-root {
+  position: fixed;
+  inset: 0;
+  z-index: var(--swal-z-modal);
+  font-family: var(--swal-font-primary);
+  font-size: var(--swal-font-size-md);
+  line-height: var(--swal-line-height-normal);
+  color: var(--swal-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ============================================================================
+   Backdrop - Glassmorphism with Aurora Gradient
+   ============================================================================ */
+
+.swal-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: var(--swal-backdrop);
+  backdrop-filter: var(--swal-glass-blur);
+  -webkit-backdrop-filter: var(--swal-glass-blur);
+  animation: swal-backdrop-fade 0.4s var(--swal-ease-out-expo) forwards;
+}
+
+@keyframes swal-backdrop-fade {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: var(--swal-glass-blur);
+  }
+}
+
+/* Aurora backdrop variant */
+.swal-backdrop--aurora {
+  background:
+    var(--swal-gradient-aurora),
+    var(--swal-backdrop);
+  animation: swal-aurora-flow 15s ease infinite, swal-backdrop-fade 0.4s var(--swal-ease-out-expo) forwards;
+}
+
+/* Mesh gradient backdrop */
+.swal-backdrop--mesh {
+  background:
+    var(--swal-gradient-mesh),
+    var(--swal-backdrop);
+}
+
+/* ============================================================================
+   Container (Centering)
+   ============================================================================ */
+
+.swal-container {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--swal-space-6);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  perspective: 1200px;
+}
+
+/* Position variants with smooth transitions */
+.swal-container[data-position="top"] {
+  align-items: flex-start;
+  padding-top: var(--swal-space-16);
+}
+
+.swal-container[data-position="top-start"] {
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-top: var(--swal-space-16);
+}
+
+.swal-container[data-position="top-end"] {
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding-top: var(--swal-space-16);
+}
+
+.swal-container[data-position="bottom"] {
+  align-items: flex-end;
+  padding-bottom: var(--swal-space-16);
+}
+
+.swal-container[data-position="bottom-start"] {
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding-bottom: var(--swal-space-16);
+}
+
+.swal-container[data-position="bottom-end"] {
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding-bottom: var(--swal-space-16);
+}
+
+/* ============================================================================
+   Dialog - Premium Claymorphism Card
+   ============================================================================ */
+
+.swal-dialog {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: var(--swal-modal-width-md);
+  max-height: var(--swal-modal-max-height);
+  background: var(--swal-surface-elevated);
+  border-radius: var(--swal-radius-2xl);
+  box-shadow: var(--swal-shadow-clay);
+  overflow: hidden;
+  transform-style: preserve-3d;
+  animation: swal-dialog-enter 0.5s var(--swal-ease-spring) forwards;
+}
+
+/* Gradient border effect */
+.swal-dialog::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: var(--swal-radius-2xl);
+  background: var(--swal-gradient-border);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* Subtle inner glow */
+.swal-dialog::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--swal-radius-2xl);
+  box-shadow: var(--swal-shadow-inner-glow);
+  pointer-events: none;
+}
+
+/* Dialog enter animation */
+@keyframes swal-dialog-enter {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px) rotateX(10deg);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.02) translateY(-5px) rotateX(-2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0) rotateX(0);
+  }
+}
+
+/* Dialog exit animation */
+.swal-dialog--exiting {
+  animation: swal-dialog-exit 0.3s var(--swal-ease-out-expo) forwards;
+}
+
+@keyframes swal-dialog-exit {
+  from {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+}
+
+/* Size variants */
+.swal-dialog[data-size="sm"] {
+  max-width: var(--swal-modal-width-sm);
+}
+
+.swal-dialog[data-size="md"] {
+  max-width: var(--swal-modal-width-md);
+}
+
+.swal-dialog[data-size="lg"] {
+  max-width: var(--swal-modal-width-lg);
+}
+
+.swal-dialog[data-size="xl"] {
+  max-width: var(--swal-modal-width-xl);
+}
+
+.swal-dialog[data-size="full"] {
+  max-width: calc(100vw - var(--swal-space-8));
+  max-height: calc(100vh - var(--swal-space-8));
+}
+
+.swal-dialog[data-size="auto"] {
+  max-width: fit-content;
+}
+
+/* ============================================================================
+   Dialog Style Variants
+   ============================================================================ */
+
+/* Neumorphism variant */
+.swal-dialog--neumorphism {
+  background: var(--swal-neu-bg);
+  box-shadow: var(--swal-shadow-neu-raised);
+}
+
+.swal-dialog--neumorphism::before {
+  display: none;
+}
+
+/* Claymorphism variant (default) */
+.swal-dialog--claymorphism {
+  background: var(--swal-clay-bg);
+  box-shadow: var(--swal-shadow-clay);
+}
+
+/* Glass variant */
+.swal-dialog--glass {
+  background: var(--swal-glass-bg);
+  backdrop-filter: var(--swal-glass-blur);
+  -webkit-backdrop-filter: var(--swal-glass-blur);
+  border: 1px solid var(--swal-glass-border);
+  box-shadow: var(--swal-shadow-lg);
+}
+
+/* Aurora glow variant */
+.swal-dialog--aurora {
+  background:
+    var(--swal-gradient-aurora),
+    var(--swal-surface-elevated);
+  box-shadow:
+    var(--swal-shadow-clay),
+    0 0 60px rgba(99, 102, 241, 0.15),
+    0 0 120px rgba(168, 85, 247, 0.1);
+}
+
+/* Premium glow variant */
+.swal-dialog--glow {
+  box-shadow: var(--swal-shadow-glow);
+}
+
+/* Shake animation for static backdrop */
+@keyframes swal-shake {
+  0%, 100% { transform: translateX(0) rotate(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-6px) rotate(-0.5deg); }
+  20%, 40%, 60%, 80% { transform: translateX(6px) rotate(0.5deg); }
+}
+
+.swal-dialog--shake {
+  animation: swal-shake 0.4s var(--swal-ease-spring);
+}
+
+/* ============================================================================
+   Header
+   ============================================================================ */
+
+.swal-header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--swal-space-4);
+  padding: var(--swal-space-8) var(--swal-space-8) 0;
+  text-align: center;
+}
+
+/* ============================================================================
+   Close Button - Neumorphic Micro-interaction
+   ============================================================================ */
+
+.swal-close {
+  position: absolute;
+  top: var(--swal-space-4);
+  right: var(--swal-space-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: none;
+  border-radius: var(--swal-radius-lg);
+  background: var(--swal-surface-secondary);
+  color: var(--swal-text-tertiary);
+  cursor: pointer;
+  transition:
+    transform 0.2s var(--swal-ease-spring),
+    background 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+  box-shadow: var(--swal-shadow-xs);
+}
+
+.swal-close:hover {
+  background: var(--swal-danger-50);
+  color: var(--swal-danger);
+  transform: scale(1.1) rotate(90deg);
+  box-shadow: var(--swal-shadow-sm);
+}
+
+.swal-close:active {
+  transform: scale(0.95) rotate(90deg);
+  box-shadow: var(--swal-shadow-neu-inset);
+}
+
+.swal-close:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--swal-ring-primary);
+}
+
+.swal-close svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s var(--swal-ease-spring);
+}
+
+/* ============================================================================
+   Icons - Animated with Glow Effects
+   ============================================================================ */
+
+.swal-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  animation: swal-icon-enter 0.5s var(--swal-ease-spring) forwards;
+}
+
+@keyframes swal-icon-enter {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(-180deg);
+  }
+  60% {
+    transform: scale(1.2) rotate(10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+.swal-icon svg {
+  width: 40px;
+  height: 40px;
+  filter: drop-shadow(0 2px 4px currentColor);
+}
+
+/* Success Icon */
+.swal-icon--success {
+  background: linear-gradient(135deg, var(--swal-success-50) 0%, var(--swal-success-100) 100%);
+  color: var(--swal-success);
+  box-shadow:
+    0 0 30px rgba(34, 197, 94, 0.3),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.05),
+    inset 0 3px 6px rgba(255, 255, 255, 0.8);
+  animation: swal-icon-enter 0.5s var(--swal-ease-spring), swal-success-pulse 2s ease-in-out infinite 0.5s;
+}
+
+@keyframes swal-success-pulse {
+  0%, 100% { box-shadow: 0 0 30px rgba(34, 197, 94, 0.3), inset 0 -3px 6px rgba(0, 0, 0, 0.05), inset 0 3px 6px rgba(255, 255, 255, 0.8); }
+  50% { box-shadow: 0 0 50px rgba(34, 197, 94, 0.5), inset 0 -3px 6px rgba(0, 0, 0, 0.05), inset 0 3px 6px rgba(255, 255, 255, 0.8); }
+}
+
+/* Error Icon */
+.swal-icon--error {
+  background: linear-gradient(135deg, var(--swal-danger-50) 0%, var(--swal-danger-100) 100%);
+  color: var(--swal-danger);
+  box-shadow:
+    0 0 30px rgba(239, 68, 68, 0.3),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.05),
+    inset 0 3px 6px rgba(255, 255, 255, 0.8);
+}
+
+/* Warning Icon */
+.swal-icon--warning {
+  background: linear-gradient(135deg, var(--swal-warning-50) 0%, var(--swal-warning-100) 100%);
+  color: var(--swal-warning);
+  box-shadow:
+    0 0 30px rgba(245, 158, 11, 0.3),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.05),
+    inset 0 3px 6px rgba(255, 255, 255, 0.8);
+  animation: swal-icon-enter 0.5s var(--swal-ease-spring), swal-warning-shake 0.6s ease-in-out infinite 0.5s;
+}
+
+@keyframes swal-warning-shake {
+  0%, 100% { transform: rotate(0); }
+  25% { transform: rotate(-5deg); }
+  75% { transform: rotate(5deg); }
+}
+
+/* Info Icon */
+.swal-icon--info {
+  background: linear-gradient(135deg, var(--swal-info-50) 0%, var(--swal-info-100) 100%);
+  color: var(--swal-info);
+  box-shadow:
+    0 0 30px rgba(59, 130, 246, 0.3),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.05),
+    inset 0 3px 6px rgba(255, 255, 255, 0.8);
+}
+
+/* Question Icon */
+.swal-icon--question {
+  background: linear-gradient(135deg, var(--swal-secondary-50) 0%, var(--swal-secondary-100) 100%);
+  color: var(--swal-secondary);
+  box-shadow:
+    0 0 30px rgba(139, 92, 246, 0.3),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.05),
+    inset 0 3px 6px rgba(255, 255, 255, 0.8);
+  animation: swal-icon-enter 0.5s var(--swal-ease-spring), swal-float 3s ease-in-out infinite 0.5s;
+}
+
+/* Loading Icon */
+.swal-icon--loading {
+  background: linear-gradient(135deg, var(--swal-neutral-100) 0%, var(--swal-neutral-200) 100%);
+  color: var(--swal-primary);
+  box-shadow:
+    0 0 30px rgba(99, 102, 241, 0.2),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.05),
+    inset 0 3px 6px rgba(255, 255, 255, 0.8);
+}
+
+.swal-icon--loading svg {
+  animation: swal-spin 1s linear infinite;
+}
+
+@keyframes swal-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ============================================================================
+   Title
+   ============================================================================ */
+
+.swal-title {
+  margin: 0;
+  font-family: var(--swal-font-display);
+  font-size: var(--swal-font-size-2xl);
+  font-weight: var(--swal-font-bold);
+  line-height: var(--swal-line-height-tight);
+  color: var(--swal-text-primary);
+  letter-spacing: -0.025em;
+  animation: swal-title-enter 0.4s var(--swal-ease-out-expo) 0.1s both;
+}
+
+@keyframes swal-title-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================================
+   Body
+   ============================================================================ */
+
+.swal-body {
+  flex: 1;
+  padding: var(--swal-space-4) var(--swal-space-8);
+  overflow-y: auto;
+}
+
+.swal-content {
+  font-size: var(--swal-font-size-md);
+  color: var(--swal-text-secondary);
+  text-align: center;
+  line-height: var(--swal-line-height-relaxed);
+  animation: swal-content-enter 0.4s var(--swal-ease-out-expo) 0.15s both;
+}
+
+@keyframes swal-content-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* HTML Content */
+.swal-html-content {
+  text-align: left;
+}
+
+.swal-html-content h1,
+.swal-html-content h2,
+.swal-html-content h3,
+.swal-html-content h4,
+.swal-html-content h5,
+.swal-html-content h6 {
+  color: var(--swal-text-primary);
+  margin-top: var(--swal-space-4);
+  margin-bottom: var(--swal-space-2);
+}
+
+.swal-html-content p {
+  margin-bottom: var(--swal-space-4);
+}
+
+.swal-html-content ul,
+.swal-html-content ol {
+  padding-left: var(--swal-space-6);
+  margin-bottom: var(--swal-space-4);
+}
+
+.swal-html-content code {
+  padding: 2px 6px;
+  background: var(--swal-surface-secondary);
+  border-radius: var(--swal-radius-sm);
+  font-family: var(--swal-font-mono);
+  font-size: 0.875em;
+}
+
+.swal-html-content pre {
+  padding: var(--swal-space-4);
+  background: var(--swal-surface-secondary);
+  border-radius: var(--swal-radius-lg);
+  overflow-x: auto;
+}
+
+.swal-html-content pre code {
+  padding: 0;
+  background: none;
+}
+
+/* ============================================================================
+   Image
+   ============================================================================ */
+
+.swal-image {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--swal-space-4);
+  animation: swal-image-enter 0.5s var(--swal-ease-spring) 0.1s both;
+}
+
+@keyframes swal-image-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.swal-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--swal-radius-xl);
+  box-shadow: var(--swal-shadow-lg);
+}
+
+/* ============================================================================
+   Input Fields - Premium Neumorphic Style
+   ============================================================================ */
+
+.swal-input {
+  margin-top: var(--swal-space-6);
+  text-align: left;
+  animation: swal-input-enter 0.4s var(--swal-ease-out-expo) 0.2s both;
+}
+
+@keyframes swal-input-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.swal-input-label {
+  display: block;
+  margin-bottom: var(--swal-space-2);
+  font-size: var(--swal-font-size-sm);
+  font-weight: var(--swal-font-semibold);
+  color: var(--swal-text-primary);
+  letter-spacing: 0.01em;
+}
+
+.swal-input-label .swal-required {
+  color: var(--swal-danger);
+  margin-left: 2px;
+}
+
+.swal-input-field {
+  display: block;
+  width: 100%;
+  height: 48px;
+  padding: 0 var(--swal-space-4);
+  font-family: inherit;
+  font-size: var(--swal-font-size-md);
+  color: var(--swal-text-primary);
+  background: var(--swal-surface-secondary);
+  border: 2px solid transparent;
+  border-radius: var(--swal-radius-xl);
+  box-shadow: var(--swal-shadow-neu-inset);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.3s var(--swal-ease-spring),
+    transform 0.2s var(--swal-ease-spring),
+    background 0.2s ease;
+}
+
+.swal-input-field::placeholder {
+  color: var(--swal-text-tertiary);
+}
+
+.swal-input-field:hover {
+  background: var(--swal-surface-primary);
+}
+
+.swal-input-field:focus {
+  outline: none;
+  border-color: var(--swal-primary);
+  background: var(--swal-surface-primary);
+  box-shadow:
+    var(--swal-shadow-neu-inset),
+    0 0 0 4px var(--swal-ring-primary);
+  transform: scale(1.01);
+}
+
+/* Textarea */
+textarea.swal-input-field {
+  min-height: 120px;
+  padding-top: var(--swal-space-3);
+  padding-bottom: var(--swal-space-3);
+  resize: vertical;
+  line-height: var(--swal-line-height-relaxed);
+}
+
+/* Select */
+select.swal-input-field {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236366f1' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 12px center;
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+  padding-right: 48px;
+  cursor: pointer;
+}
+
+/* Checkbox/Radio group */
+.swal-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--swal-space-3);
+}
+
+.swal-input-item {
+  display: flex;
+  align-items: center;
+  gap: var(--swal-space-3);
+  padding: var(--swal-space-3) var(--swal-space-4);
+  background: var(--swal-surface-secondary);
+  border-radius: var(--swal-radius-lg);
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s var(--swal-ease-spring);
+}
+
+.swal-input-item:hover {
+  background: var(--swal-surface-primary);
+  box-shadow: var(--swal-shadow-sm);
+  transform: translateX(4px);
+}
+
+.swal-input-item input {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  accent-color: var(--swal-primary);
+  cursor: pointer;
+}
+
+.swal-input-item label {
+  flex: 1;
+  cursor: pointer;
+  font-size: var(--swal-font-size-md);
+  color: var(--swal-text-primary);
+}
+
+/* Error state */
+.swal-input--error .swal-input-field {
+  border-color: var(--swal-danger);
+  animation: swal-shake 0.4s var(--swal-ease-spring);
+}
+
+.swal-input--error .swal-input-field:focus {
+  box-shadow:
+    var(--swal-shadow-neu-inset),
+    0 0 0 4px var(--swal-ring-danger);
+}
+
+.swal-input-error {
+  display: flex;
+  align-items: center;
+  gap: var(--swal-space-2);
+  min-height: 24px;
+  margin-top: var(--swal-space-2);
+  font-size: var(--swal-font-size-sm);
+  color: var(--swal-danger);
+  animation: swal-error-enter 0.3s var(--swal-ease-spring);
+}
+
+@keyframes swal-error-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.swal-input-error::before {
+  content: '';
+  width: 16px;
+  height: 16px;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor'%3e%3cpath fill-rule='evenodd' d='M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z' clip-rule='evenodd'/%3e%3c/svg%3e");
+  mask: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor'%3e%3cpath fill-rule='evenodd' d='M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z' clip-rule='evenodd'/%3e%3c/svg%3e");
+  flex-shrink: 0;
+}
+
+/* ============================================================================
+   Actions (Buttons Container)
+   ============================================================================ */
+
+.swal-actions {
+  display: flex;
+  gap: var(--swal-space-3);
+  justify-content: center;
+  padding: var(--swal-space-6) var(--swal-space-8) var(--swal-space-8);
+  animation: swal-actions-enter 0.4s var(--swal-ease-out-expo) 0.25s both;
+}
+
+@keyframes swal-actions-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.swal-actions--vertical {
+  flex-direction: column;
+}
+
+.swal-actions--space-between {
+  justify-content: space-between;
+}
+
+.swal-actions--start {
+  justify-content: flex-start;
+}
+
+.swal-actions--end {
+  justify-content: flex-end;
+}
+
+/* ============================================================================
+   Buttons - Premium Claymorphic Style
+   ============================================================================ */
+
+.swal-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--swal-space-2);
+  min-width: 100px;
+  height: 48px;
+  padding: 0 var(--swal-space-6);
+  font-family: inherit;
+  font-size: var(--swal-font-size-md);
+  font-weight: var(--swal-font-semibold);
+  line-height: 1;
+  text-decoration: none;
+  border: none;
+  border-radius: var(--swal-radius-xl);
+  cursor: pointer;
+  user-select: none;
+  overflow: hidden;
+  transition:
+    transform 0.2s var(--swal-ease-spring),
+    box-shadow 0.3s var(--swal-ease-spring),
+    background 0.2s ease;
+}
+
+/* Ripple effect container */
+.swal-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--ripple-x, 50%) var(--ripple-y, 50%), rgba(255, 255, 255, 0.3) 0%, transparent 60%);
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.swal-btn:active::before {
+  transform: scale(2.5);
+  opacity: 1;
+  transition: transform 0.1s ease, opacity 0s;
+}
+
+/* Focus ring */
+.swal-btn:focus-visible {
+  outline: none;
+  box-shadow:
+    var(--swal-shadow-clay),
+    0 0 0 4px var(--swal-ring-primary);
+}
+
+.swal-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* Active state */
+.swal-btn:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+/* Hover lift effect */
+.swal-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+/* Primary Button - Gradient with Glow */
+.swal-btn--primary,
+.swal-btn-confirm {
+  background: var(--swal-gradient-primary);
+  color: white;
+  box-shadow:
+    var(--swal-shadow-md),
+    0 4px 15px rgba(99, 102, 241, 0.4);
+}
+
+.swal-btn--primary:hover:not(:disabled),
+.swal-btn-confirm:hover:not(:disabled) {
+  box-shadow:
+    var(--swal-shadow-lg),
+    0 8px 25px rgba(99, 102, 241, 0.5);
+}
+
+.swal-btn--primary:active:not(:disabled),
+.swal-btn-confirm:active:not(:disabled) {
+  box-shadow:
+    var(--swal-shadow-sm),
+    0 2px 10px rgba(99, 102, 241, 0.3);
+}
+
+/* Secondary Button - Neumorphic */
+.swal-btn--secondary,
+.swal-btn-cancel {
+  background: var(--swal-surface-secondary);
+  color: var(--swal-text-primary);
+  box-shadow: var(--swal-shadow-neu-raised);
+}
+
+.swal-btn--secondary:hover:not(:disabled),
+.swal-btn-cancel:hover:not(:disabled) {
+  background: var(--swal-surface-primary);
+  box-shadow:
+    var(--swal-shadow-md),
+    var(--swal-shadow-neu-raised);
+}
+
+.swal-btn--secondary:active:not(:disabled),
+.swal-btn-cancel:active:not(:disabled) {
+  box-shadow: var(--swal-shadow-neu-inset);
+}
+
+/* Danger Button */
+.swal-btn--danger,
+.swal-btn-deny {
+  background: linear-gradient(135deg, var(--swal-danger) 0%, var(--swal-danger-600) 100%);
+  color: white;
+  box-shadow:
+    var(--swal-shadow-md),
+    0 4px 15px rgba(239, 68, 68, 0.4);
+}
+
+.swal-btn--danger:hover:not(:disabled),
+.swal-btn-deny:hover:not(:disabled) {
+  box-shadow:
+    var(--swal-shadow-lg),
+    0 8px 25px rgba(239, 68, 68, 0.5);
+}
+
+/* Success Button */
+.swal-btn--success {
+  background: linear-gradient(135deg, var(--swal-success) 0%, var(--swal-success-600) 100%);
+  color: white;
+  box-shadow:
+    var(--swal-shadow-md),
+    0 4px 15px rgba(34, 197, 94, 0.4);
+}
+
+.swal-btn--success:hover:not(:disabled) {
+  box-shadow:
+    var(--swal-shadow-lg),
+    0 8px 25px rgba(34, 197, 94, 0.5);
+}
+
+/* Warning Button */
+.swal-btn--warning {
+  background: linear-gradient(135deg, var(--swal-warning) 0%, var(--swal-warning-600) 100%);
+  color: white;
+  box-shadow:
+    var(--swal-shadow-md),
+    0 4px 15px rgba(245, 158, 11, 0.4);
+}
+
+/* Ghost Button */
+.swal-btn--ghost {
+  background: transparent;
+  color: var(--swal-text-secondary);
+  box-shadow: none;
+}
+
+.swal-btn--ghost:hover:not(:disabled) {
+  background: var(--swal-surface-secondary);
+  color: var(--swal-text-primary);
+  box-shadow: var(--swal-shadow-sm);
+}
+
+/* Link Button */
+.swal-btn--link {
+  background: transparent;
+  color: var(--swal-primary);
+  box-shadow: none;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.swal-btn--link:hover:not(:disabled) {
+  color: var(--swal-primary-600);
+  text-decoration-thickness: 2px;
+}
+
+/* Outline Button */
+.swal-btn--outline {
+  background: transparent;
+  color: var(--swal-primary);
+  border: 2px solid var(--swal-primary);
+  box-shadow: none;
+}
+
+.swal-btn--outline:hover:not(:disabled) {
+  background: var(--swal-primary-50);
+  box-shadow: var(--swal-shadow-sm);
+}
+
+/* Button with Icon */
+.swal-btn svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* Loading state in button */
+.swal-btn--loading {
+  pointer-events: none;
+}
+
+.swal-btn--loading .swal-btn-text {
+  opacity: 0;
+}
+
+.swal-btn--loading::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: swal-spin 0.6s linear infinite;
+}
+
+/* ============================================================================
+   Footer
+   ============================================================================ */
+
+.swal-footer {
+  padding: 0 var(--swal-space-8) var(--swal-space-6);
+  font-size: var(--swal-font-size-sm);
+  color: var(--swal-text-tertiary);
+  text-align: center;
+}
+
+.swal-footer a {
+  color: var(--swal-primary);
+  text-decoration: none;
+  font-weight: var(--swal-font-medium);
+  transition: color 0.2s ease;
+}
+
+.swal-footer a:hover {
+  color: var(--swal-primary-600);
+  text-decoration: underline;
+}
+
+/* ============================================================================
+   Timer Progress Bar - Gradient Animation
+   ============================================================================ */
+
+.swal-timer-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--swal-gradient-primary);
+  transform-origin: left;
+  border-radius: 0 0 var(--swal-radius-2xl) var(--swal-radius-2xl);
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+}
+
+/* Animated shimmer effect on progress bar */
+.swal-timer-progress::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+  animation: swal-shimmer 1.5s infinite;
+}
+
+/* ============================================================================
+   Loading State
+   ============================================================================ */
+
+.swal-loading {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--swal-space-4);
+  background: var(--swal-glass-bg);
+  backdrop-filter: var(--swal-glass-blur);
+  -webkit-backdrop-filter: var(--swal-glass-blur);
+  border-radius: var(--swal-radius-2xl);
+  animation: swal-loading-enter 0.3s var(--swal-ease-out-expo);
+}
+
+@keyframes swal-loading-enter {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: var(--swal-glass-blur);
+  }
+}
+
+.swal-spinner {
+  width: 48px;
+  height: 48px;
+  color: var(--swal-primary);
+  filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.5));
+}
+
+.swal-spinner svg {
+  width: 100%;
+  height: 100%;
+  animation: swal-spin 1s linear infinite;
+}
+
+/* Premium spinner with gradient */
+.swal-spinner--premium {
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    var(--swal-primary) 60deg,
+    var(--swal-secondary) 180deg,
+    transparent 360deg
+  );
+  border-radius: 50%;
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #fff 0);
+  mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #fff 0);
+  animation: swal-spin 1s linear infinite;
+}
+
+.swal-loading-text {
+  font-size: var(--swal-font-size-md);
+  color: var(--swal-text-secondary);
+  font-weight: var(--swal-font-medium);
+}
+
+.swal-dialog--loading .swal-body,
+.swal-dialog--loading .swal-actions {
+  pointer-events: none;
+  opacity: 0.3;
+  filter: blur(2px);
+}
+
+/* ============================================================================
+   Step Indicator (Wizard)
+   ============================================================================ */
+
+.swal-steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--swal-space-2);
+  padding: var(--swal-space-4) var(--swal-space-8) 0;
+}
+
+.swal-step {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  font-size: var(--swal-font-size-sm);
+  font-weight: var(--swal-font-semibold);
+  color: var(--swal-text-tertiary);
+  background: var(--swal-surface-secondary);
+  border-radius: 50%;
+  transition:
+    transform 0.3s var(--swal-ease-spring),
+    background 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.swal-step--active {
+  color: white;
+  background: var(--swal-gradient-primary);
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+  transform: scale(1.15);
+}
+
+.swal-step--completed {
+  color: white;
+  background: var(--swal-success);
+  box-shadow: 0 0 15px rgba(34, 197, 94, 0.3);
+}
+
+.swal-step-connector {
+  width: 24px;
+  height: 2px;
+  background: var(--swal-border);
+  border-radius: 1px;
+  transition: background 0.3s ease;
+}
+
+.swal-step-connector--completed {
+  background: var(--swal-success);
+}
+
+/* ============================================================================
+   Validation Summary
+   ============================================================================ */
+
+.swal-validation-message {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--swal-space-3);
+  padding: var(--swal-space-4);
+  margin: var(--swal-space-4) 0 0;
+  background: linear-gradient(135deg, var(--swal-danger-50) 0%, var(--swal-danger-100) 100%);
+  border: 1px solid var(--swal-danger-200);
+  border-radius: var(--swal-radius-lg);
+  font-size: var(--swal-font-size-sm);
+  color: var(--swal-danger-700);
+  animation: swal-validation-enter 0.3s var(--swal-ease-spring);
+}
+
+@keyframes swal-validation-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.swal-validation-message::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  background: var(--swal-danger);
+  -webkit-mask: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor'%3e%3cpath fill-rule='evenodd' d='M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z' clip-rule='evenodd'/%3e%3c/svg%3e");
+  mask: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor'%3e%3cpath fill-rule='evenodd' d='M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z' clip-rule='evenodd'/%3e%3c/svg%3e");
+}
+
+/* ============================================================================
+   Reduced Motion
+   ============================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .swal-root *,
+  .swal-root *::before,
+  .swal-root *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .swal-dialog {
+    animation: none;
+  }
+
+  .swal-dialog--shake {
+    animation: none;
+  }
+}
+
+/* ============================================================================
+   Mobile Optimizations
+   ============================================================================ */
+
+@media (max-width: 640px) {
+  .swal-container {
+    padding: var(--swal-space-4);
+    align-items: flex-end;
+  }
+
+  .swal-dialog {
+    max-width: 100%;
+    max-height: 90vh;
+    border-radius: var(--swal-radius-2xl) var(--swal-radius-2xl) 0 0;
+    animation: swal-dialog-enter-mobile 0.4s var(--swal-ease-spring) forwards;
+  }
+
+  @keyframes swal-dialog-enter-mobile {
+    from {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .swal-dialog::before,
+  .swal-dialog::after {
+    border-radius: var(--swal-radius-2xl) var(--swal-radius-2xl) 0 0;
+  }
+
+  .swal-dialog[data-size="full"] {
+    max-height: 100vh;
+    border-radius: 0;
+  }
+
+  .swal-header {
+    padding: var(--swal-space-6) var(--swal-space-6) 0;
+  }
+
+  .swal-body {
+    padding: var(--swal-space-4) var(--swal-space-6);
+  }
+
+  .swal-actions {
+    flex-direction: column;
+    padding: var(--swal-space-4) var(--swal-space-6) var(--swal-space-6);
+  }
+
+  .swal-btn {
+    width: 100%;
+  }
+
+  .swal-footer {
+    padding: 0 var(--swal-space-6) var(--swal-space-6);
+  }
+
+  /* Handle notch on newer phones */
+  .swal-dialog {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* ============================================================================
+   Dark Mode Support
+   ============================================================================ */
+
+@media (prefers-color-scheme: dark) {
+  .swal-root {
+    --swal-surface-primary: #1e1e2e;
+    --swal-surface-secondary: #2a2a3e;
+    --swal-surface-elevated: linear-gradient(145deg, #252538 0%, #1a1a28 100%);
+    --swal-text-primary: #f1f5f9;
+    --swal-text-secondary: #94a3b8;
+    --swal-text-tertiary: #64748b;
+    --swal-border: rgba(255, 255, 255, 0.1);
+    --swal-backdrop: rgba(0, 0, 0, 0.8);
+
+    --swal-neu-bg: #1e1e2e;
+    --swal-clay-bg: linear-gradient(145deg, #252538 0%, #1a1a28 100%);
+
+    --swal-shadow-neu-raised:
+      6px 6px 12px rgba(0, 0, 0, 0.4),
+      -6px -6px 12px rgba(255, 255, 255, 0.05);
+
+    --swal-shadow-neu-inset:
+      inset 4px 4px 8px rgba(0, 0, 0, 0.4),
+      inset -4px -4px 8px rgba(255, 255, 255, 0.03);
+
+    --swal-shadow-clay:
+      0 12px 40px rgba(0, 0, 0, 0.5),
+      inset 0 -8px 20px rgba(0, 0, 0, 0.2),
+      inset 0 8px 20px rgba(255, 255, 255, 0.05);
+
+    --swal-glass-bg: rgba(30, 30, 46, 0.8);
+    --swal-glass-border: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Manual dark mode class */
+.swal-root--dark {
+  --swal-surface-primary: #1e1e2e;
+  --swal-surface-secondary: #2a2a3e;
+  --swal-surface-elevated: linear-gradient(145deg, #252538 0%, #1a1a28 100%);
+  --swal-text-primary: #f1f5f9;
+  --swal-text-secondary: #94a3b8;
+  --swal-text-tertiary: #64748b;
+  --swal-border: rgba(255, 255, 255, 0.1);
+  --swal-backdrop: rgba(0, 0, 0, 0.8);
+
+  --swal-neu-bg: #1e1e2e;
+  --swal-clay-bg: linear-gradient(145deg, #252538 0%, #1a1a28 100%);
+
+  --swal-shadow-neu-raised:
+    6px 6px 12px rgba(0, 0, 0, 0.4),
+    -6px -6px 12px rgba(255, 255, 255, 0.05);
+
+  --swal-shadow-neu-inset:
+    inset 4px 4px 8px rgba(0, 0, 0, 0.4),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.03);
+
+  --swal-shadow-clay:
+    0 12px 40px rgba(0, 0, 0, 0.5),
+    inset 0 -8px 20px rgba(0, 0, 0, 0.2),
+    inset 0 8px 20px rgba(255, 255, 255, 0.05);
+
+  --swal-glass-bg: rgba(30, 30, 46, 0.8);
+  --swal-glass-border: rgba(255, 255, 255, 0.1);
+}
+
+/* ============================================================================
+   Print Styles
+   ============================================================================ */
+
+@media print {
+  .swal-root {
+    position: relative;
+  }
+
+  .swal-backdrop {
+    display: none;
+  }
+
+  .swal-dialog {
+    box-shadow: none;
+    border: 1px solid #ccc;
+    animation: none;
+  }
+
+  .swal-dialog::before,
+  .swal-dialog::after {
+    display: none;
+  }
+}
+
+/* ============================================================================
+   Accessibility Enhancements
+   ============================================================================ */
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .swal-dialog {
+    border: 2px solid var(--swal-text-primary);
+  }
+
+  .swal-btn {
+    border: 2px solid currentColor;
+  }
+
+  .swal-input-field {
+    border-width: 2px;
+  }
+}
+
+/* Focus within for dialog */
+.swal-dialog:focus-within {
+  outline: none;
+}
+
+/* Skip link for keyboard navigation */
+.swal-skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  padding: var(--swal-space-2) var(--swal-space-4);
+  background: var(--swal-primary);
+  color: white;
+  text-decoration: none;
+  border-radius: var(--swal-radius-md);
+  z-index: 100;
+  transition: top 0.2s ease;
+}
+
+.swal-skip-link:focus {
+  top: var(--swal-space-2);
+}
